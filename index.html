@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="範文字卡">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#efe7d6">
+<meta name="format-detection" content="telephone=no">
+<title>範文十二篇 ‧ 文言字詞字卡溫習（DSE 中文）</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.1.0/style.css">
+<style>
+:root{--paper:#efe7d6;--paper2:#f8f3e8;--paper3:#e6dcc6;--ink:#1f1d1b;--ink2:#443f3a;--ink3:#857d73;--mist:#d6cdbb;--red:#a8322a;--ok:#3f6b4c;--okbg:#e6ece2;--badbg:#f1e0dd;--line:rgba(31,29,27,.18);--line2:rgba(31,29,27,.32);--sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);--sal:env(safe-area-inset-left,0px);--sar:env(safe-area-inset-right,0px);--brush:9px 7px 10px 7px / 7px 10px 7px 9px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overscroll-behavior-y:none}
+html,body{height:100%}
+body{font-family:'LXGW WenKai TC','Kaiti TC','Kaiti SC','STKaiti','PingFang TC','Microsoft JhengHei',serif;color:var(--ink);min-height:100vh;min-height:100dvh;overflow-x:hidden;touch-action:manipulation;overscroll-behavior-y:none;background:radial-gradient(ellipse at 15% 10%,rgba(255,255,255,.55),transparent 55%),radial-gradient(ellipse at 85% 95%,rgba(120,100,70,.10),transparent 55%),var(--paper);background-attachment:fixed}
+button{touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;font-family:inherit}
+#bg,#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+#bg{z-index:0}#fx{z-index:80}
+header{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:calc(16px + var(--sat)) calc(clamp(14px,4vw,40px) + var(--sar)) 12px calc(clamp(14px,4vw,40px) + var(--sal))}
+.brand{display:flex;align-items:center;gap:14px}
+.brand h1{font-weight:700;font-size:clamp(22px,3.2vw,34px);letter-spacing:.14em;line-height:1.1}
+.brand h1 small{display:block;font-size:.45em;font-weight:400;color:var(--ink3);letter-spacing:.3em;margin-top:4px}
+.seal{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;direction:rtl;width:56px;height:56px;background:var(--red);color:#fff;font-size:14px;line-height:1;border-radius:5px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35),0 1px 3px rgba(0,0,0,.25);transform:rotate(-5deg);flex-shrink:0;padding:5px;overflow:hidden}
+.seal i{font-style:normal;display:grid;place-items:center;font-weight:700}
+.sound{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line2);background:rgba(248,243,232,.8);font-size:17px;cursor:pointer;color:var(--ink2);display:grid;place-items:center;flex-shrink:0}
+.sound.off{color:var(--ink3);text-decoration:line-through}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{position:relative;font-size:15px;padding:8px 16px;min-height:44px;border-radius:var(--brush);border:1.5px solid var(--line2);background:rgba(248,243,232,.8);cursor:pointer;transition:.2s;display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+nav button .ico{font-size:17px;width:26px;height:26px;border:1.5px solid var(--ink2);border-radius:50%;display:grid;place-items:center;line-height:1}
+nav button.active{background:var(--ink);color:var(--paper2);border-color:var(--ink)}
+nav button.active .ico{border-color:var(--paper2)}
+nav button .badge{display:inline-block;min-width:20px;padding:0 6px;border-radius:999px;background:var(--red);color:#fff;font-size:12px;font-weight:700;line-height:20px}
+main{position:relative;z-index:1;padding:6px calc(clamp(14px,4vw,40px) + var(--sar)) 60px calc(clamp(14px,4vw,40px) + var(--sal));max-width:1100px;margin:0 auto}
+section.view{display:none;animation:fade .4s ease}
+section.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.btn{font-size:15px;padding:10px 18px;min-height:44px;border-radius:var(--brush);border:1.5px solid var(--ink2);background:var(--paper2);color:var(--ink);cursor:pointer;transition:.18s;box-shadow:1px 2px 0 rgba(31,29,27,.15)}
+.btn.ink{background:var(--ink);color:var(--paper2);border-color:var(--ink)}
+.btn.red{background:var(--red);color:#fff;border-color:var(--red)}
+.btn.ghost{background:transparent;box-shadow:none;border-color:var(--line2);color:var(--ink2)}
+.btn.small{font-size:13px;padding:6px 12px;min-height:36px}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn:active:not(:disabled),.opt:active:not(:disabled),.chip:active,.mini:active,nav button:active,.scroll-card .acts button:active{transform:scale(.97)}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin:10px 0 18px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.chip{font-size:13px;padding:8px 14px;min-height:36px;border-radius:999px;border:1.5px solid var(--line2);background:rgba(248,243,232,.8);cursor:pointer;color:var(--ink)}
+.chip.active{background:var(--ink);color:var(--paper2);border-color:var(--ink)}
+.counter{font-size:14px;color:var(--ink3);letter-spacing:.1em}
+.subhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:4px 0 12px}
+.subtitle{flex:1;text-align:center;font-size:clamp(17px,2.4vw,22px);letter-spacing:.12em}
+.subtitle span{display:block;font-size:13px;color:var(--ink3);letter-spacing:.2em;margin-top:2px}
+mark{background:none;color:var(--red);font-weight:700;-webkit-text-emphasis:filled circle var(--red);text-emphasis:filled circle var(--red);-webkit-text-emphasis-position:under right;text-emphasis-position:under right}
+.panel{position:relative;background:rgba(248,243,232,.92);border:1px solid var(--line2);border-radius:var(--brush);padding:28px clamp(18px,4vw,40px);box-shadow:0 14px 40px rgba(60,50,40,.14);max-width:860px;margin:0 auto}
+.panel::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);border-radius:6px;pointer-events:none}
+.panel>*{position:relative}
+h2.ink{font-size:24px;letter-spacing:.2em;margin-bottom:16px;font-weight:700;position:relative;padding-bottom:8px}
+h2.ink::after{content:"";position:absolute;left:0;bottom:0;width:80px;height:4px;background:var(--ink);opacity:.8;border-radius:50% 40% 60% 30%/60% 40% 70% 30%}
+.lead{color:var(--ink2);font-size:15px;line-height:1.8;margin-bottom:14px}
+.setup-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
+.setup-row label.lbl{min-width:90px;color:var(--ink3);font-size:14px;letter-spacing:.15em}
+.opt-toggle{display:inline-flex;align-items:center;gap:6px;font-size:15px;padding:10px 14px;min-height:44px;border:1.5px solid var(--line2);border-radius:var(--brush);background:var(--paper2);cursor:pointer;-webkit-user-select:none;user-select:none}
+.opt-toggle input{accent-color:var(--ink);width:18px;height:18px}
+.opt-toggle:has(input:checked){border-color:var(--ink);background:var(--paper3)}
+.empty{text-align:center;padding:50px 20px;color:var(--ink3);font-size:17px;background:rgba(248,243,232,.7);border:1px dashed var(--line2);border-radius:var(--brush);line-height:1.8}
+.hero{text-align:center;margin:6px auto 22px;max-width:720px}
+.hero p{color:var(--ink2);font-size:15px;line-height:1.9}
+.hero .quick{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.scroll-card{display:flex;background:var(--paper2);border:1.5px solid var(--ink2);border-radius:var(--brush);overflow:hidden;box-shadow:2px 3px 0 rgba(31,29,27,.12);transition:.2s}
+.scroll-card .vt{writing-mode:vertical-rl;background:var(--ink);color:var(--paper2);padding:14px 9px;font-size:17px;letter-spacing:.2em;display:flex;align-items:center;justify-content:center;flex-shrink:0;min-width:40px}
+.scroll-card .body{flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.scroll-card h3{font-size:19px;letter-spacing:.1em;font-weight:700;display:flex;align-items:center;gap:8px}
+.scroll-card h3 .num{width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:13px;flex-shrink:0}
+.scroll-card .author{font-size:13px;color:var(--ink3);letter-spacing:.15em}
+.pbar{height:7px;background:rgba(31,29,27,.08);border-radius:999px;overflow:hidden}
+.pbar i{display:block;height:100%;background:linear-gradient(90deg,var(--ink2),var(--ink));border-radius:999px;transition:width .4s}
+.scroll-card .meta{font-size:13px;color:var(--ink2);display:flex;gap:10px;flex-wrap:wrap}
+.scroll-card .meta .w{color:var(--red)}
+.scroll-card .acts{display:flex;gap:8px;margin-top:auto;padding-top:6px}
+.scroll-card .acts button{flex:1;font-size:14px;padding:9px 8px;min-height:44px;border-radius:var(--brush);border:1.5px solid var(--ink2);background:var(--paper2);cursor:pointer;color:var(--ink)}
+.scroll-card .acts button.ink{background:var(--ink);color:var(--paper2)}
+.card{width:min(760px,94vw);height:min(560px,74vh);height:min(560px,74dvh);position:relative;perspective:1800px;margin:0 auto;cursor:pointer;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.card-inner{position:absolute;inset:0;transition:transform .7s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.card.flipped .card-inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--brush);background:var(--paper2);border:1.5px solid var(--ink2);box-shadow:0 20px 50px rgba(60,50,40,.18);padding:26px 30px;display:flex;flex-direction:column;overflow:hidden;transform:translateZ(0)}
+.face::before{content:"";position:absolute;inset:9px;border:1px solid var(--line);border-radius:6px;pointer-events:none}
+.face.back{transform:rotateY(180deg)}
+.card:not(.flipped) .face.back,.card.flipped .face.front{pointer-events:none}
+.face .tag{font-size:12px;letter-spacing:.4em;color:var(--ink3);display:flex;align-items:center;gap:10px}
+.face .tag::after{content:"";flex:1;height:1px;background:var(--line)}
+.front .sentence{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+.front .sentence .text{font-size:clamp(26px,4.6vw,44px);font-weight:700;letter-spacing:.1em;line-height:1.6}
+.front .src{font-size:14px;color:var(--ink3);letter-spacing:.15em}
+.front .ask{font-size:16px;color:var(--ink2);margin-top:6px}
+.front .hint{text-align:center;font-size:13px;color:var(--ink3);letter-spacing:.25em}
+.mastered-stamp{position:absolute;top:22px;right:24px;transform:rotate(10deg);border:3px solid var(--red);color:var(--red);font-weight:700;padding:3px 10px;border-radius:5px;letter-spacing:.25em;opacity:0;transition:.3s;font-size:14px}
+.card.mastered .mastered-stamp{opacity:.85}
+.back .scroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-right:6px;margin-top:10px;cursor:auto;-webkit-user-select:text;user-select:text;touch-action:pan-y;display:flex;flex-direction:column;gap:14px}
+.defmain{display:flex;align-items:center;gap:18px;padding:10px 0 6px}
+.defmain .bigw{font-size:clamp(48px,8vw,76px);font-weight:700;line-height:1;min-width:1.2em;text-align:center}
+.defmain .meaning{font-size:clamp(20px,3vw,28px);font-weight:700;line-height:1.5}
+.pos{display:inline-block;font-size:12px;background:var(--paper3);color:var(--ink2);padding:3px 10px;border-radius:999px;border:1px solid var(--line);margin-top:6px}
+.block h4{font-size:12px;letter-spacing:.4em;color:var(--ink3);margin-bottom:6px;font-weight:400;display:flex;align-items:center;gap:8px}
+.block h4::after{content:"";flex:1;height:1px;background:var(--line)}
+.block .orig{font-size:clamp(17px,2.4vw,21px);line-height:1.8;font-weight:600}
+.block .orig .src{color:var(--ink3);font-size:13px;margin-left:8px;font-weight:400}
+.block .tr{font-size:clamp(15px,2vw,17px);line-height:1.9;color:var(--ink2)}
+.card-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+.kbd,.swipe-hint{font-size:11px;color:var(--ink3);text-align:center;margin-top:10px;letter-spacing:.05em}
+.swipe-hint{display:none}
+.progress{height:8px;background:rgba(31,29,27,.08);border-radius:999px;overflow:hidden;margin:6px 0 18px}
+.progress i{display:block;height:100%;background:var(--ink);width:0;transition:width .4s}
+.qmeta{display:flex;justify-content:space-between;font-size:13px;color:var(--ink3);letter-spacing:.1em}
+#qTimer{font-weight:700;font-size:15px;color:var(--ink2)}
+#qTimer.low{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.qtype{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--paper3);color:var(--ink2);border:1px solid var(--line);margin-bottom:10px;letter-spacing:.1em}
+.stem{font-size:clamp(20px,3vw,27px);line-height:1.8;font-weight:700;margin-bottom:6px}
+.stem-src{font-size:14px;color:var(--ink3);margin-bottom:18px;min-height:1em;letter-spacing:.1em}
+.options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.opt{text-align:left;font-size:17px;padding:14px 16px;min-height:60px;border-radius:var(--brush);border:1.5px solid var(--line2);background:var(--paper2);cursor:pointer;transition:.18s;display:flex;gap:12px;align-items:center;color:var(--ink);line-height:1.5}
+.opt .n{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--ink2);display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-size:14px}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--ok);background:var(--okbg)}.opt.correct .n{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.wrong{border-color:var(--red);background:var(--badbg);animation:shake .4s}.opt.wrong .n{background:var(--red);color:#fff;border-color:var(--red)}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.feedback{position:relative;margin-top:18px;padding:16px 70px 16px 18px;border-radius:var(--brush);background:var(--paper2);border:1.5px solid var(--line2);display:none;line-height:1.9;font-size:15px}
+.feedback.show{display:block;animation:fade .3s}
+.feedback .head{font-size:18px;font-weight:700;margin-bottom:4px}
+.feedback.good .head{color:var(--ok)}.feedback.badf .head{color:var(--red)}
+.feedback .big{font-size:20px;font-weight:700}
+.stamp{position:absolute;right:12px;top:10px;width:52px;height:52px;border:3px solid var(--red);color:var(--red);display:grid;place-items:center;font-size:30px;font-weight:900;border-radius:6px;transform:rotate(-12deg);opacity:.85;animation:stamp .35s ease-out}
+.stamp.bad{border-color:var(--ink3);color:var(--ink3)}
+@keyframes stamp{from{transform:rotate(-12deg) scale(1.9);opacity:0}to{transform:rotate(-12deg) scale(1);opacity:.85}}
+.quiz-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:16px;align-items:center}
+.result-top{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center;margin:10px 0 22px}
+.ring{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ink) 0%,var(--paper3) 0);position:relative}
+.ring::before{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--paper2);border:1px solid var(--line)}
+.ring span{position:relative;font-size:34px;font-weight:700;text-align:center}
+.ring span small{font-size:14px;color:var(--ink3);display:block;font-weight:400}
+.result-msg{font-size:19px;line-height:1.8;max-width:440px}
+.wrong-list{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.wrong-item{background:var(--paper2);border-radius:var(--brush);padding:14px 16px;border:1px solid var(--line2);border-left:4px solid var(--red);font-size:15px;line-height:1.8}
+.wrong-item .q{font-weight:700;font-size:17px}
+.wrong-item .ans span{display:inline-block;padding:1px 8px;border-radius:6px;margin-right:6px;font-size:14px}
+.wrong-item .ans .you{background:var(--badbg);color:var(--red);text-decoration:line-through}
+.wrong-item .ans .ok{background:var(--okbg);color:var(--ok)}
+.wrong-item .meta{font-size:13px;color:var(--ink3)}
+.hist-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:8px}
+table.hist{width:100%;min-width:520px;border-collapse:collapse;font-size:14px;background:var(--paper2);border:1px solid var(--line2)}
+table.hist th,table.hist td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+table.hist th{background:var(--paper3);color:var(--ink2);font-weight:700;letter-spacing:.15em}
+table.hist td.pct b{color:var(--red)}
+.tbtn{font-size:12px;padding:6px 12px;min-height:32px;border-radius:999px;border:1px solid var(--ink2);background:var(--paper2);cursor:pointer;color:var(--ink)}
+.grp{margin-top:18px}
+.grp h3{font-size:16px;letter-spacing:.2em;color:var(--ink2);display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.grp h3::after{content:"";flex:1;height:1px;background:var(--line2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.mini{background:var(--paper2);border-radius:var(--brush);padding:14px;border:1.5px solid var(--line2);cursor:pointer;transition:.18s;position:relative}
+.mini .s{font-size:17px;font-weight:700;letter-spacing:.05em;line-height:1.6;padding-right:60px}
+.mini .w{font-size:13px;color:var(--ink2);margin-top:6px}
+.mini .cnt{position:absolute;top:10px;right:10px;background:var(--red);color:#fff;font-size:12px;border-radius:999px;padding:2px 8px}
+.mini.m{border-color:var(--ok)}.mini.m .cnt{background:var(--ok)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:20px}
+.stat{background:var(--paper2);border-radius:var(--brush);padding:18px;text-align:center;border:1.5px solid var(--line2)}
+.stat b{display:block;font-size:34px;font-weight:700}
+.stat b.red{color:var(--red)}
+.stat span{font-size:13px;color:var(--ink3);letter-spacing:.15em}
+.tlist{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.trow{display:grid;grid-template-columns:minmax(120px,1.4fr) 2fr auto;gap:12px;align-items:center;background:var(--paper2);border:1px solid var(--line2);border-radius:var(--brush);padding:10px 14px;font-size:14px}
+.trow .t{font-weight:700;letter-spacing:.05em}
+.trow .t small{display:block;color:var(--ink3);font-weight:400;font-size:12px}
+.trow .n{text-align:right;color:var(--ink2);white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:calc(30px + var(--sab));transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--paper2);padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:.3s;z-index:60;pointer-events:none;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%)}
+footer{position:relative;z-index:1;text-align:center;font-size:12px;color:var(--ink3);padding:10px;letter-spacing:.15em}
+.a2hs{position:fixed;left:12px;right:12px;bottom:calc(84px + var(--sab));z-index:70;background:var(--paper2);border:1.5px solid var(--ink2);border-radius:var(--brush);padding:12px 44px 12px 14px;font-size:14px;line-height:1.7;box-shadow:0 10px 30px rgba(0,0,0,.2);display:none}
+.a2hs.show{display:block;animation:fade .3s}
+.a2hs b{color:var(--red)}
+.a2hs button{position:absolute;right:6px;top:6px;width:34px;height:34px;border:none;background:transparent;font-size:20px;color:var(--ink3);cursor:pointer}
+.modal{position:fixed;inset:0;z-index:90;background:rgba(31,29,27,.45);display:flex;align-items:center;justify-content:center;padding:20px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:fade .2s}
+.modal[hidden]{display:none}
+.modal-box{background:var(--paper2);border:1.5px solid var(--ink2);border-radius:var(--brush);padding:24px 22px;max-width:380px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.modal-msg{font-size:17px;line-height:1.8;margin-bottom:18px}
+.modal-btns{display:flex;gap:10px;justify-content:flex-end}
+.modal-btns .btn{flex:1}
+@media (hover:hover){nav button:hover{transform:translateY(-1px)}.btn:hover:not(:disabled){transform:translateY(-1px)}.opt:hover:not(:disabled){border-color:var(--ink);transform:translateY(-2px)}.mini:hover,.scroll-card:hover{transform:translateY(-3px);box-shadow:3px 8px 20px rgba(31,29,27,.15)}}
+@media (hover:none) and (pointer:coarse){.kbd{display:none}.swipe-hint{display:block}}
+@media (max-width:720px){
+  header{padding:calc(10px + var(--sat)) 14px 4px;justify-content:center}
+  .brand{gap:10px}.brand h1{font-size:21px;text-align:center}.brand h1 small{font-size:11px;letter-spacing:.2em}
+  nav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:rgba(239,231,214,.96);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1.5px solid var(--line2);padding:6px calc(6px + var(--sar)) calc(6px + var(--sab)) calc(6px + var(--sal))}
+  nav button{border:none;background:transparent;border-radius:10px;padding:5px 2px;font-size:11px;flex-direction:column;justify-content:center;gap:3px;min-height:52px}
+  nav button .ico{font-size:16px;width:28px;height:28px}
+  nav button.active{background:var(--paper3);color:var(--ink);border:none}
+  nav button.active .ico{background:var(--ink);color:var(--paper2);border-color:var(--ink)}
+  nav button .badge{position:absolute;top:0;right:calc(50% - 26px);font-size:11px;line-height:18px;min-width:18px}
+  main{padding:4px 12px calc(96px + var(--sab))}
+  footer{display:none}.toast{bottom:calc(84px + var(--sab))}
+  .menu{grid-template-columns:1fr}
+  .card{width:100%;height:clamp(380px,60vh,540px);height:clamp(380px,60dvh,540px)}
+  .face{padding:18px 16px}.front .sentence .text{font-size:clamp(24px,6.6vw,34px)}.front .ask{font-size:14px}.defmain{gap:14px}
+  .card-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+  .card-actions .btn{padding:10px 6px;font-size:14px}
+  .card-actions #flipBtn,.card-actions #masterBtn{grid-column:1/-1}
+  .panel{padding:20px 14px}h2.ink{font-size:20px}.options{grid-template-columns:1fr}
+  .setup-row label.lbl{min-width:100%}.result-msg{font-size:17px;text-align:center}
+  .stats{grid-template-columns:repeat(2,1fr)}.trow{grid-template-columns:1fr;gap:6px}.trow .n{text-align:left}.subtitle{font-size:16px}
+  .quiz-foot{position:sticky;bottom:calc(72px + var(--sab));z-index:5;background:rgba(248,243,232,.96);margin:14px -6px 0;padding:10px 6px 6px;border-top:1px solid var(--line)}
+  .quiz-foot #nextQ{flex:1;min-height:50px;font-size:17px}
+}
+@media (max-height:500px) and (orientation:landscape) and (pointer:coarse){
+  header{padding-top:calc(4px + var(--sat));padding-bottom:0}
+  .brand h1 small,.hero p,.kbd,.swipe-hint{display:none}.brand h1{font-size:18px}
+  .card{height:min(78dvh,420px)}.face{padding:12px 16px}.card-actions{margin-top:8px}
+  main{padding-bottom:calc(70px + var(--sab))}
+}
+@media (prefers-reduced-motion:reduce){.card-inner{transition-duration:.2s}section.view,.feedback.show,.stamp{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<canvas id="fx"></canvas>
+
+<header>
+  <div class="brand">
+    <span class="seal" aria-hidden="true"><i>新</i><i>知</i><i>故</i><i>溫</i></span>
+    <h1>範文十二篇<small>文言字詞 ‧ 字卡溫習</small></h1>
+    <button class="sound" id="soundBtn" title="音效開關" aria-label="音效開關">♪</button>
+  </div>
+  <nav>
+    <button data-view="home" class="active"><span class="ico">卷</span><span class="lbl">主選單</span></button>
+    <button data-view="final"><span class="ico">試</span><span class="lbl">試前總測</span></button>
+    <button data-view="wrong"><span class="ico">錄</span><span class="lbl">錯題本</span><span class="badge" id="wrongBadge">0</span></button>
+    <button data-view="stats"><span class="ico">跡</span><span class="lbl">學習進度</span></button>
+  </nav>
+</header>
+
+<main>
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <p>選取篇章，逐張翻閱字卡，記熟字解、詞性與句譯；<br>臨考前可進入「試前總測」，一次過以測考形式溫習十二篇全部字詞。</p>
+      <div class="quick"><button class="btn ink" id="goFinal">試前總測</button><button class="btn" id="goWrong">錯題本</button><button class="btn ghost" id="goStats">學習進度</button></div>
+    </div>
+    <div class="menu" id="menuGrid"></div>
+  </section>
+
+  <section class="view" id="view-learn">
+    <div class="subhead">
+      <button class="btn small" id="backHome">← 主選單</button>
+      <div class="subtitle"><b id="learnTitle"></b><span id="learnAuthor"></span></div>
+      <button class="btn small ink" id="learnToQuiz">測考此篇</button>
+    </div>
+    <div class="toolbar">
+      <div class="chips" id="filterChips">
+        <button class="chip active" data-f="all">全部字詞</button>
+        <button class="chip" data-f="unmastered">未掌握</button>
+        <button class="chip" data-f="mastered">已掌握</button>
+        <button class="chip" data-f="wrong">錯題</button>
+      </div>
+      <span class="counter" id="counter"></span>
+    </div>
+    <div id="cardWrap"></div>
+    <div class="card-actions">
+      <button class="btn ink" id="flipBtn">翻轉字卡</button>
+      <button class="btn" id="prevBtn">◀ 上一張</button>
+      <button class="btn" id="shuffleBtn">洗牌</button>
+      <button class="btn" id="nextBtn">下一張 ▶</button>
+      <button class="btn red" id="masterBtn">✔ 標記已掌握</button>
+    </div>
+    <div class="kbd">鍵盤：← → 切換字卡 ｜ 空白鍵／Enter 翻轉 ｜ M 標記已掌握</div>
+    <div class="swipe-hint">點一下翻轉字卡 ｜ 左右滑動切換上一張／下一張</div>
+  </section>
+
+  <section class="view" id="view-quiz">
+    <div class="subhead">
+      <button class="btn small" id="quizBack">← 主選單</button>
+      <div class="subtitle"><b id="quizTitle">自我測考</b><span id="quizSub"></span></div>
+      <span style="width:84px"></span>
+    </div>
+    <div class="panel" id="quizSetup">
+      <h2 class="ink">自我測考</h2>
+      <p class="lead">以本篇<b>原文句子</b>出題，考核你是否記得句中重點字詞的字解。錯誤選項經特別設計（今義、同字他義、形近字），務須細心分辨。答錯會記入錯題本。</p>
+      <div class="setup-row"><label class="lbl">題目數量</label>
+        <label class="opt-toggle"><input type="radio" name="qn" value="10" checked>10 題</label>
+        <label class="opt-toggle"><input type="radio" name="qn" value="20">20 題</label>
+        <label class="opt-toggle"><input type="radio" name="qn" value="all">本篇全部</label>
+      </div>
+      <div class="setup-row"><label class="lbl">範圍</label>
+        <label class="opt-toggle"><input type="radio" name="scope" value="all" checked>全部字詞</label>
+        <label class="opt-toggle"><input type="radio" name="scope" value="unmastered">只測未掌握</label>
+        <label class="opt-toggle"><input type="radio" name="scope" value="wrong">只測本篇錯題</label>
+      </div>
+      <div class="setup-row"><label class="lbl">計時</label>
+        <label class="opt-toggle"><input type="radio" name="qtimer" value="0" checked>不計時</label>
+        <label class="opt-toggle"><input type="radio" name="qtimer" value="60">1 分鐘</label>
+        <label class="opt-toggle"><input type="radio" name="qtimer" value="120">2 分鐘</label>
+        <label class="opt-toggle"><input type="radio" name="qtimer" value="180">3 分鐘</label>
+      </div>
+      <div class="setup-row" style="margin-top:20px">
+        <button class="btn ink" id="startQuiz">開始測驗</button>
+        <button class="btn" id="setupToLearn">先看字卡</button>
+      </div>
+    </div>
+    <div class="panel" id="quizPlay" style="display:none">
+      <div class="qmeta"><span id="qIndex"></span><span id="qTimer" style="display:none"></span><span id="qScore"></span></div>
+      <div class="progress"><i id="qBar"></i></div>
+      <div class="qtype" id="qType"></div>
+      <div class="stem" id="qStem"></div>
+      <div class="stem-src" id="qSrc"></div>
+      <div class="options" id="qOptions"></div>
+      <div class="feedback" id="qFeedback"></div>
+      <div class="quiz-foot">
+        <button class="btn ghost small" id="quitQuiz">結束測驗</button>
+        <button class="btn ink" id="nextQ" style="display:none">下一題 ▶</button>
+      </div>
+    </div>
+    <div class="panel" id="quizResult" style="display:none">
+      <h2 class="ink">測驗結果</h2>
+      <div class="result-top">
+        <div class="ring" id="ring"><span id="ringText"></span></div>
+        <div class="result-msg" id="resultMsg"></div>
+      </div>
+      <div class="setup-row" style="justify-content:center">
+        <button class="btn" id="reviewWrongCards">檢討錯題（看字卡）</button>
+        <button class="btn red" id="retestWrong">重測錯題</button>
+        <button class="btn ink" id="againQuiz">再來一次</button>
+        <button class="btn ghost" id="resultHome">返回主選單</button>
+      </div>
+      <div id="breakdownWrap" style="display:none">
+        <h3 style="margin-top:22px;font-size:16px;letter-spacing:.2em;color:var(--ink2)">各篇正確率</h3>
+        <div class="hist-wrap" style="margin-top:8px"><table class="hist"><thead><tr><th>篇章</th><th>題數</th><th>答對</th><th>正確率</th><th></th></tr></thead><tbody id="breakdownBody"></tbody></table></div>
+      </div>
+      <h3 style="margin-top:22px;font-size:16px;letter-spacing:.2em;color:var(--red)" id="wrongTitle">答錯題目檢討</h3>
+      <div class="wrong-list" id="wrongList"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-final">
+    <div class="panel">
+      <h2 class="ink">試前總測</h2>
+      <p class="lead">一次過以測考形式溫習<b>十二篇全部字詞</b>。題目全以原文句子出題，答錯會記入錯題本；完成後會顯示各篇正確率，方便針對弱篇重點溫習。</p>
+      <div class="stats" id="finalStats"></div>
+      <div class="setup-row"><label class="lbl">題量</label>
+        <label class="opt-toggle"><input type="radio" name="fqn" value="3">每篇抽 3 題</label>
+        <label class="opt-toggle"><input type="radio" name="fqn" value="5" checked>每篇抽 5 題</label>
+        <label class="opt-toggle"><input type="radio" name="fqn" value="10">每篇抽 10 題</label>
+        <label class="opt-toggle"><input type="radio" name="fqn" value="all">全部字詞</label>
+      </div>
+      <div class="setup-row"><label class="lbl">範圍</label>
+        <label class="opt-toggle"><input type="radio" name="fscope" value="all" checked>全部字詞</label>
+        <label class="opt-toggle"><input type="radio" name="fscope" value="unmastered">只測未掌握</label>
+        <label class="opt-toggle"><input type="radio" name="fscope" value="wrong">只測錯題本</label>
+      </div>
+      <div class="setup-row"><label class="lbl">次序</label>
+        <label class="opt-toggle"><input type="radio" name="forder" value="mix" checked>十二篇隨機混合</label>
+        <label class="opt-toggle"><input type="radio" name="forder" value="seq">依篇章次序</label>
+      </div>
+      <div class="setup-row"><label class="lbl">計時</label>
+        <label class="opt-toggle"><input type="radio" name="ftimer" value="0" checked>不計時</label>
+        <label class="opt-toggle"><input type="radio" name="ftimer" value="60">1 分鐘</label>
+        <label class="opt-toggle"><input type="radio" name="ftimer" value="120">2 分鐘</label>
+        <label class="opt-toggle"><input type="radio" name="ftimer" value="180">3 分鐘</label>
+      </div>
+      <div class="setup-row" style="margin-top:20px">
+        <button class="btn ink" id="startFinal">開始總測</button>
+        <span id="finalCount" style="color:var(--ink3);font-size:14px"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-wrong">
+    <div class="panel">
+      <h2 class="ink">錯題本</h2>
+      <p class="lead">以下為測驗中曾答錯的字詞（按篇章分列，數字為答錯次數）。點一下可打開字卡溫習；掌握後可在字卡標記「已掌握」。</p>
+      <div class="setup-row">
+        <button class="btn ink" id="quizWrongAll">測考全部錯題</button>
+        <button class="btn" id="learnWrongBtn">逐張溫習</button>
+        <button class="btn ghost small" id="clearWrong">清空錯題本</button>
+      </div>
+      <div id="wrongGroups"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-stats">
+    <div class="panel">
+      <h2 class="ink">學習進度</h2>
+      <div class="stats" id="statCards"></div>
+      <h3 style="font-size:15px;letter-spacing:.2em;color:var(--ink3);margin:10px 0">各篇掌握情況</h3>
+      <div class="tlist" id="textProgress"></div>
+      <h3 style="font-size:15px;letter-spacing:.2em;color:var(--ink3);margin:10px 0">測驗紀錄</h3>
+      <div class="hist-wrap"><table class="hist"><thead><tr><th>日期時間</th><th>測驗</th><th>題數</th><th>答對</th><th>正確率</th></tr></thead><tbody id="histBody"></tbody></table></div>
+      <div class="setup-row" style="margin-top:16px"><button class="btn ghost small" id="resetAll">重設所有進度</button><span style="font-size:12px;color:var(--ink3)">進度只儲存在此裝置的瀏覽器內</span></div>
+    </div>
+  </section>
+</main>
+<footer>HKDSE 中國語文 ‧ 指定文言經典學習材料十二篇 ‧ 字詞溫習</footer>
+<div class="toast" id="toast"></div>
+<div class="a2hs" id="a2hs">在 Safari 按 <b>分享 ⬆︎</b> → <b>加入主畫面</b>，即可全螢幕使用，體驗更接近 App。<button id="a2hsClose" aria-label="關閉">×</button></div>
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <div class="modal-msg" id="modalMsg"></div>
+    <div class="modal-btns"><button class="btn" id="modalNo">取消</button><button class="btn ink" id="modalYes">確定</button></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     字卡資料區（內容取自《DSE範文文言字詞溫習表》）
+     每行格式：字詞|詞性|字解|原文|句解|（留空）|出處（詩詞用，可省略）
+     ============================================================ -->
+<script type="text/plain" class="dat" data-id="t1" data-num="一" data-title="論仁‧論孝‧論君子" data-author="《論語》">
+約|名詞|貧困、困窘|不仁者，不可以久處約，不可以長處樂。|沒有仁德的人，不可以長久處於貧困中，也不可以長久處於安樂中。
+處|動詞|處身、接受（指處身於富貴）|不以其道得之，不處也。|不是以正當的方法取得富貴，君子就不會接受。
+知|形容詞（通假字）|通「智」，智慧|仁者安仁，知者利仁。|有仁德的人安於仁德，明智的人知道行仁有利而實行仁德。
+利|動詞|利用、以……為有利|仁者安仁，知者利仁。|有仁德的人安於仁德，明智的人知道行仁有利而實行仁德。
+去|動詞|拋棄|不以其道得之，不去也。|不是以正當的方法擺脫貧賤，君子就不會擺脫它。
+惡乎|疑問代詞|怎麼、如何|君子去仁，惡乎成名？|君子離棄了仁德，怎麼能成就（君子的）名聲呢？
+造次|名詞|倉促急迫的時候|君子無終食之間違仁，造次必於是，顛沛必於是。|君子即使在一頓飯的短暫時間裏也不違背仁德，倉促急迫時必定如此，流離困頓時也必定如此。
+顛沛|名詞|流離失所、困頓的時候|君子無終食之間違仁，造次必於是，顛沛必於是。|君子即使在一頓飯的短暫時間裏也不違背仁德，倉促急迫時必定如此，流離困頓時也必定如此。
+克|動詞|克制、約束|克己復禮為仁。|克制自己的私慾，使言行回復到禮的規範，就是仁。
+復|動詞|回復、返歸|克己復禮為仁。|克制自己的私慾，使言行回復到禮的規範，就是仁。
+敏|形容詞|聰敏|回雖不敏，請事斯語矣。|我（顏回）雖然不聰敏，也請讓我實踐這些話吧。
+養|動詞|奉養（父母）|今之孝者，是謂能養|現在所謂的孝，只是說能夠奉養父母。
+養|動詞|飼養（犬馬）|至於犬馬，皆能有養|至於狗和馬，也都能得到飼養。
+幾|副詞|輕微、委婉|事父母幾諫，見志不從，又敬不違，勞而不怨。|侍奉父母，（他們有過失時）要委婉地勸諫；看到(父母)的意願不聽從勸告，仍然恭敬而不觸犯，為父母憂勞而不怨恨。
+志|名詞|意願、心意|事父母幾諫，見志不從，又敬不違，勞而不怨。|侍奉父母，（他們有過失時）要委婉地勸諫；看到(父母)的意願不聽從勸告，仍然恭敬而不觸犯，為父母憂勞而不怨恨。
+勞|動詞|憂勞、操心|事父母幾諫，見志不從，又敬不違，勞而不怨。|侍奉父母，（他們有過失時）要委婉地勸諫；看到(父母)的意願不聽從勸告，仍然恭敬而不觸犯，為父母憂勞而不怨恨。
+重|形容詞|莊重|君子不重則不威|君子不莊重就沒有威嚴。
+威|名詞|威嚴/威儀|君子不重則不威|君子不莊重就沒有威嚴。
+憚|動詞|害怕、畏懼|過則勿憚改。|有了過錯就不要害怕改正。
+坦蕩蕩|形容詞|心胸開朗、安然坦蕩/光明正大，無所隱瞞。|君子坦蕩蕩，小人長戚戚。|君子心胸開朗坦蕩，小人則常常憂愁不安。
+戚戚|形容詞|憂愁不安的樣子|君子坦蕩蕩，小人長戚戚。|君子心胸開朗坦蕩，小人則常常憂愁不安。
+質|名詞|根本、本質、原則|君子義以為質，禮以行之，孫以出之，信以成之|君子以義作為根本，以禮來實行它，以謙遜的態度表達它，以誠信來完成它。
+孫|形容詞（通假字）|通「遜」，謙遜|君子義以為質，禮以行之，孫以出之，信以成之|君子以義作為根本，以禮來實行它，以謙遜的態度表達它，以誠信來完成它。
+病|動詞|擔心、憂慮|君子病無能焉|君子擔心自己沒有才能。
+諸|兼詞|「之於」的合音|君子求諸己|君子求之於自己（凡事反省要求自己）。
+</script>
+
+<script type="text/plain" class="dat" data-id="t2" data-num="二" data-title="岳陽樓記" data-author="范仲淹">
+謫|動詞|貶官、降職|滕子京謫守巴陵郡|滕子京被貶官到巴陵郡做太守。
+具|副詞（通假字）|通「俱」，全、都|越明年，政通人和，百廢具興。|到了第二年，政事順利，百姓和樂，各種荒廢了的事業都興辦起來。
+制|名詞|規模|乃重修岳陽樓，增其舊制|於是重新修建岳陽樓，擴大它原有的規模。
+屬|動詞（通假字）|通「囑」，囑咐|屬予作文以記之|囑咐我寫一篇文章來記述這件事。
+勝狀|名詞|美好的景色|予觀夫巴陵勝狀|我看那巴陵郡的美好景色。
+銜|動詞|通「含」，包圍、連接|銜遠山，吞長江|（洞庭湖）銜接著遠處的山，吞吐著長江的流水。
+備|形容詞|詳盡、完備|此則岳陽樓之大觀也，前人之述備矣。|這就是岳陽樓的壯麗景象，前人的記述已經很詳盡了。
+極|動詞|直達、直通到|然則北通巫峽，南極瀟湘|這樣看來，（洞庭湖）北面直通巫峽，南面直達瀟水和湘水。
+霪雨|名詞|連綿不斷的雨|若夫霪雨霏霏，連月不開|像那連綿的陰雨紛紛不斷，一連幾個月不放晴。
+排|動詞|推、擠，這裡引伸為衝擊、衝向|陰風怒號，濁浪排空|陰冷的狂風怒吼，混濁的浪濤衝向天空。
+潛|動詞|隱沒、潛藏|日星隱耀，山岳潛形|太陽和星星隱沒了光輝，山嶽隱藏了形跡。
+檣|名詞|桅杆|商旅不行，檣傾楫摧|商人和旅客不能通行，桅杆傾倒，船槳折斷。
+楫|名詞|船槳|商旅不行，檣傾楫摧|商人和旅客不能通行，桅杆傾倒，船槳折斷。
+薄|動詞|迫近|薄暮冥冥，虎嘯猿啼|迫近傍晚，天色昏暗，老虎吼叫，猿猴悲啼。
+暮|名詞|黃昏/傍晚|薄暮冥冥，虎嘯猿啼|迫近傍晚，天色昏暗，老虎吼叫，猿猴悲啼。
+去|動詞|離開|則有去國懷鄉，憂讒畏譏|就會有離開國都、懷念家鄉，擔心被說壞話、懼怕被譏諷的心情。
+蕭|形容詞|蕭條、冷落|滿目蕭然，感極而悲者矣|滿目都是蕭條冷落的景象，感傷到極點而悲傷起來。
+空|動詞|消散、散盡|而或長煙一空，皓月千里|有時大霧完全消散，皎潔的月光照耀千里。
+極|動詞|窮盡、盡頭|漁歌互答，此樂何極|漁夫的歌聲互相應和，這種快樂哪有盡頭呢？
+把|動詞|持、拿著|把酒臨風，其喜洋洋者矣。|端著酒杯，迎著微風，那喜悅的心情真是洋溢啊。
+廟堂|名詞|朝廷|居廟堂之高，則憂其民|在朝廷做官，就為百姓擔憂。
+耶|助詞|語氣詞，相當於「呢」|是進亦憂，退亦憂，然則何時而樂耶？|這樣入朝做官也憂愁，退處江湖也憂愁，那麼甚麼時候才快樂呢？
+噫|嘆詞|感嘆詞，唉|噫！微斯人，吾誰與歸﹗|唉！如果沒有這種人，我同誰一道呢？
+微|動詞|沒有|噫！微斯人，吾誰與歸﹗|唉！如果沒有這種人，我同誰一道呢？
+斯|代詞|這、這種|噫！微斯人，吾誰與歸﹗|唉！如果沒有這種人，我同誰一道呢？
+歸|動詞|歸依、同道|噫！微斯人，吾誰與歸﹗|唉！如果沒有這種人，我同誰一道呢？
+</script>
+
+<script type="text/plain" class="dat" data-id="t3" data-num="三" data-title="廉頗藺相如列傳" data-author="《史記》">
+遺|動詞|送給、致送|秦昭王聞之，使人遺趙王書|秦昭王聽說這件事，派人送信給趙王。
+易|動詞|交換|願以十五城請易璧|願意用十五座城池來換取和氏璧。
+竊|副詞|私下、私自|臣嘗有罪，竊計欲亡走燕|我曾經犯了罪，私下打算逃亡到燕國去。
+幸|動詞|寵幸、得寵|而君幸於趙王，故燕王欲結於君|而你受趙王寵幸，所以燕王想和你結交。
+結|動詞|結交|而君幸於趙王，故燕王欲結於君|而你受趙王寵幸，所以燕王想和你結交。
+亡|動詞|逃亡、逃離|今君乃亡趙走燕|如今你卻從趙國逃亡到燕國。
+曲|形容詞|理虧、理曲|秦以城求璧而趙不許，曲在趙|秦國用城池來求璧而趙國不答應，理虧的就是趙國。
+均|動詞|權衡、比較|均之二策，寧許以負秦曲|權衡這兩個計策，寧可答應秦國，使秦國承擔理虧的責任。
+因|副詞|便、隨即、然後|王授璧，相如因持璧，卻立|趙王把璧交給相如，相如隨即拿著璧，退後幾步站定。
+卻|動詞|退後、後退|王授璧，相如因持璧，卻立|趙王把璧交給相如，相如於是拿著璧，退後幾步站定。
+負|動詞|倚仗、憑藉|秦貪，負其彊，以空言求璧，償城恐不可得|秦王貪婪，倚仗自己強大，想用空話求取和氏璧，答應補償的城池恐怕得不到。
+嚴|動詞|尊重、敬畏|嚴大國之威以修敬也|這是尊重大國的威望而表示敬意啊。
+修敬|動詞短語|表示敬意|嚴大國之威以修敬也|這是尊重大國的威望而表示敬意啊。
+倨|形容詞|傲慢|大王見臣列觀，禮節甚倨|大王在一般的宮殿接見我，禮節十分傲慢。
+睨|動詞|斜視、斜著眼看|相如持其璧睨柱|相如拿著璧，斜眼看著柱子。
+固|副詞|堅決、極力|秦王恐其破璧，乃辭謝固請|秦王怕他撞破璧，於是婉言道歉，堅決請求他不要這樣做。
+度|動詞|估量、揣測|相如度秦王特以詐佯為予趙城|相如估量秦王只不過用欺詐的手段假裝給趙國城池。
+佯|動詞|假裝|相如度秦王特以詐佯為予趙城|相如估量秦王只不過用欺詐的手段假裝給趙國城池。
+舍|動詞（名詞作動詞）|安排住宿|遂許齋五日，舍相如廣成傳|於是答應齋戒五天，安排相如住在廣成賓館。
+衣|動詞（名詞作動詞）|穿（衣）|乃使其從者衣褐，懷其璧，從徑道亡，歸璧於趙|於是派他的隨從穿上粗布衣服，懷藏著和氏璧，從小路逃走，把璧送回趙國。
+褐|名詞|粗布衣服|乃使其從者衣褐，懷其璧，從徑道亡，歸璧於趙|於是派他的隨從穿上粗布衣服，懷藏著和氏璧，從小路逃走，把璧送回趙國。
+誠|副詞|實在、確實|臣誠恐見欺於王而負趙|我實在害怕被大王欺騙而對不起趙國。
+唯|助詞|表示希望的語氣|唯大王與羣臣孰計議之|希望大王和群臣仔細地商議這件事。
+孰|形容詞（通假字）|通「熟」，仔細、周詳|唯大王與羣臣孰計議之|希望大王和群臣仔細地商議這件事。
+卒|副詞|終於、最終|卒廷見相如|（秦王）終於在朝廷上接見相如。
+毋|副詞|不、不要|趙王畏秦，欲毋行|趙王害怕秦國，想不去。
+酣|形容詞|酒喝得暢快|秦王飲酒酣|秦王喝酒喝得正暢快。
+刃|動詞（名詞作動詞）|用刀殺|左右欲刃相如|左右侍從想用刀殺相如。
+叱|動詞|呵斥、喝罵|相如張目叱之，左右皆靡|相如瞪大眼睛呵斥他們，侍從都嚇得退倒。
+靡|動詞|倒下、退卻|相如張目叱之，左右皆靡|相如瞪大眼睛呵斥他們，侍從都嚇得退倒。
+懌|形容詞|喜悅、高興|於是秦王不懌，為一擊缻|於是秦王很不高興，為趙王敲了一下缻。
+竟|動詞|完畢、結束|秦王竟酒，終不能加勝於趙|秦王直到酒宴完畢，始終不能佔趙國的上風。
+素|副詞|一向、本來|且相如素賤人|况且相如本來是地位低賤的人。
+賤|形容詞|低賤、地位低微|且相如素賤人|况且相如本來是地位低賤的人。
+殊甚|副詞|十分、很、非常|廉君宣惡言而君畏匿之，恐懼殊甚|廉將軍散佈惡言，而你卻害怕得躲避他，非常害怕。
+駑|形容詞|愚笨、無能|相如雖駑，獨畏廉將軍哉？|我雖然愚笨無能，難道偏偏害怕廉將軍嗎？
+讎|名詞|仇恨、仇怨|以先國家之急而後私讎也。|是把國家的急難放在前面，把個人的仇怨放在後面啊。
+</script>
+
+<script type="text/plain" class="dat" data-id="t4" data-num="四" data-title="詩三首" data-author="王維《山居秋暝》、李白《月下獨酌》、杜甫《登樓》">
+暝|名詞|日暮、傍晚|山居秋暝|（詩題）在山中居住，秋天天色將晚之時。||《山居秋暝》
+喧|動詞|喧鬧、喧譁|竹喧歸浣女|竹林喧鬧，（知道）是洗衣的女子歸來。||《山居秋暝》
+浣|動詞|洗滌（衣服）|竹喧歸浣女|竹林喧鬧，（知道）是洗衣的女子歸來。||《山居秋暝》
+隨意|副詞|任憑|隨意春芳歇|任憑春天的花草消逝。||《山居秋暝》
+芳|名詞|花草、芳草|隨意春芳歇|任憑春天的花草消逝。||《山居秋暝》
+歇|動詞|枯萎、凋零|隨意春芳歇|任憑春天的花草枯萎。||《山居秋暝》
+酌|動詞|斟酒、飲酒|獨酌無相親|獨自飲酒，沒有親近的人陪伴。||《月下獨酌》
+解|動詞|懂得、能夠|月既不解飲|月亮既然不懂得飲酒。||《月下獨酌》
+徒|副詞|徒然、白白地|影徒隨我身|影子也只是徒然跟隨著我。||《月下獨酌》
+將|介詞|與、和|暫伴月將影|暫且以月亮和影子為伴。||《月下獨酌》
+及春|動詞短語|趁著春光、及時|行樂須及春|行樂必須趕及春天的大好時光。||《月下獨酌》
+徘徊|動詞|來回移動、流連不前的樣子|我歌月徘徊|我唱歌，月亮（彷彿）徘徊不前。||《月下獨酌》
+期|動詞|約定、相約|相期邈雲漢|（我與月和影）相約在遙遠的天河再會。||《月下獨酌》
+邈|形容詞|遙遠|相期邈雲漢|（我與月和影）相約在遙遠的天河再會。||《月下獨酌》
+雲漢|名詞|銀河、天河|相期邈雲漢|（我與月和影）相約在遙遠的天河再會。||《月下獨酌》
+莫|副詞|不要|西山寇盜莫相侵|（但願朝廷振作，）西山的盜寇不要再來侵犯。||《登樓》
+可憐|形容詞|可嘆、可惜|可憐後主還祠廟|可嘆後主劉禪那樣昏庸，還有祠廟受人祭祀。||《登樓》
+還|副詞|還、仍然|可憐後主還祠廟|可嘆後主劉禪那樣昏庸，還有祠廟受人祭祀。||《登樓》
+暮|名詞|傍晚|日暮聊為梁甫吟|天色已晚，姑且吟一首《梁甫吟》（以諸葛亮自許）。||《登樓》
+聊|副詞|姑且、暫且|日暮聊為梁甫吟|天色已晚，姑且吟一首《梁甫吟》（以諸葛亮自許）。||《登樓》
+為|動詞|吟詠、作|日暮聊為梁甫吟|天色已晚，姑且吟一首《梁甫吟》（以諸葛亮自許）。||《登樓》
+</script>
+
+<script type="text/plain" class="dat" data-id="t5" data-num="五" data-title="詞三首" data-author="蘇軾《念奴嬌》、李清照《聲聲慢》、辛棄疾《青玉案》">
+道|動詞|說|故壘西邊，人道是、三國周郎赤壁|舊營壘的西邊，人們說那就是三國時周瑜大破曹軍的赤壁。||《念奴嬌》
+穿|動詞|直插、插入|亂石穿空，驚濤拍岸|嶙峋的石壁直插天空，驚人的巨浪拍打著江岸。||《念奴嬌》
+檣櫓|名詞|桅杆和船槳，借代戰船|談笑間、檣櫓灰飛煙滅|談笑之間，（曹操的）戰船已灰飛煙滅。||《念奴嬌》
+華|形容詞|花白|多情應笑我，早生華髮|應該笑我多情善感，過早地長出了花白的頭髮。||《念奴嬌》
+酹|動詞|以酒灑地祭奠|人間如夢，一尊還酹江月|人生如夢，還是灑一杯酒祭奠江上的明月吧。||《念奴嬌》
+乍|副詞|忽然、剛剛|乍煖還寒時候，最難將息|忽暖忽冷的時節，最難調養休息。||《聲聲慢》
+將息|動詞|調養、休息|乍煖還寒時候，最難將息|忽暖忽冷的時節，最難調養休息。||《聲聲慢》
+敵|動詞|抵擋|三杯兩盞淡酒，怎敵他晚來風急|三杯兩杯淡酒，怎能抵擋晚上猛烈的寒風？||《聲聲慢》
+憔悴|形容詞|枯萎凋零的樣子|滿地黃花堆積，憔悴損|滿地菊花堆積，都已枯萎凋零。||《聲聲慢》
+堪|動詞|能夠、可以|如今有誰堪摘|如今還有誰忍心採摘呢？||《聲聲慢》
+次第|名詞|情形、光景|這次第，怎一箇愁字了得|這種情景，怎是一個「愁」字能說得盡呢！||《聲聲慢》
+度|量詞|次、回|眾裏尋他千百度|在人群中尋找她千百次。||《青玉案》
+驀然|副詞|忽然、突然|驀然迴首|忽然回頭一看。||《青玉案》
+闌珊|形容詞|稀疏、零落|那人卻在、燈火闌珊處|那人卻在燈火稀疏冷落的地方。||《青玉案》
+</script>
+
+<script type="text/plain" class="dat" data-id="t6" data-num="六" data-title="逍遙遊（節錄）" data-author="《莊子》">
+貽|動詞|贈送|魏王貽我大瓠之種|魏王送給我大葫蘆的種子。
+樹|動詞（名詞作動詞）|種植|我樹之成而實五石|我把它種植起來，結成的葫蘆能容納五石。
+呺然|形容詞|空大的樣子|非不呺然大也|（這葫蘆）不是不空大。
+掊|動詞|打破、擊破|吾為其無用而掊之|我因為它沒有用處，就把它打破了。
+固|副詞|實在、固然|夫子固拙於用大矣|先生實在是不善於使用大的東西啊。
+拙|形容詞|笨拙、不善於|夫子固拙於用大矣|先生實在是不善於使用大的東西啊。
+善|動詞|擅長|宋人有善為不龜手之藥者|宋國有個擅長調製防止手皸裂的藥的人。
+龜|動詞（通假字）|通「皸」，（皮膚）凍裂|宋人有善為不龜手之藥者|宋國有個擅長調製防止手皸裂的藥的人。
+洴澼|動詞|漂洗|世世以洴澼絖為事|世世代代以漂洗絲絮為業。
+謀|動詞|商議、商量|聚族而謀曰|（宋人）聚集全族來商議說。
+鬻|動詞|賣、出售|今一朝而鬻技百金|如今一下子把藥方賣出去，就可得到百金。
+說|動詞|遊說|客得之，以說吳王|客人得到藥方，用來遊說吳王。
+將|動詞|統率軍隊、為將|越有難，吳王使之將|越國發難入侵，吳王派他統率軍隊。
+慮|動詞|考慮|何不慮以為大樽而浮於江湖|為甚麼不考慮把它繫結起來當作大腰舟，浮游於江湖之上呢？
+中|動詞|符合、合乎|其大本擁腫而不中繩墨|它的大樹幹臃腫而不合乎繩墨的標準。
+塗|名詞（通假字）|通「途」，道路|立之塗，匠者不顧|把它立在路旁，木匠連看都不看。
+去|動詞|捨棄、拋棄|今子之言，大而無用，衆所同去也|如今你的言論，大而無用，是大家都捨棄的。
+獨|副詞|難道|子獨不見狸狌乎？|你難道沒見過野貓嗎？
+卑|形容詞|低下、低伏|卑身而伏。|低下身子伏著（等候獵物）。
+中|動詞|觸中、碰上|中於機辟，死於罔罟|（結果）觸中捕捉野獸的機關，死在網中。
+機辟|名詞|捕捉野獸的機關|中於機辟，死於罔罟|（結果）觸中捕捉野獸的機關，死在網中。
+罔罟|名詞|網（魚網和獸網）|中於機辟，死於罔罟|（結果）觸中捕捉野獸的機關，死在網中。
+執|動詞|捕捉|此能為大矣，而不能執鼠|這（斄牛）算是大了，卻不能捕捉老鼠。
+患|動詞|擔心、憂慮|患其無用，何不樹之於無何有之鄉|擔心它沒有用處，為甚麼不把它種在無何有之鄉呢？
+無何有|形容詞短語|甚麼都沒有（的地方）|患其無用，何不樹之於無何有之鄉|擔心它沒有用處，為甚麼不把它種在無何有之鄉呢？
+彷徨|動詞|徘徊、徜徉|彷徨乎無為其側|自由自在地徘徊在樹旁。
+夭|動詞|摧残|不夭斤斧，物無害者|不會被斧頭砍伐而夭折，也沒有東西會摧残它。
+安|疑問代詞|哪裏、怎麼|無所可用，安所困苦哉|沒有甚麼可用之處，又哪裏會有甚麼困苦呢？
+</script>
+
+<script type="text/plain" class="dat" data-id="t7" data-num="七" data-title="六國論" data-author="蘇洵">
+利|形容詞|鋒利|六國破滅，非兵不利，戰不善|六國的滅亡，不是武器不鋒利，仗打得不好。
+善|形容詞|好、妥善|六國破滅，非兵不利，戰不善|六國的滅亡，不是武器不鋒利，仗打得不好。
+弊|名詞|弊病、弊端|弊在賂秦|弊病在於賄賂秦國。
+率|副詞|全、都|六國互喪，率賂秦耶|六國相繼滅亡，全都是因為賄賂秦國嗎？
+以|介詞|因為|不賂者以賂者喪|不賄賂秦國的國家因為賄賂秦國的國家而滅亡。
+蓋|連詞|因為（承接上文說明原因）|蓋失強援，不能獨完|因為失去了強有力的援助，不能獨自保全。
+完|動詞|保全|蓋失強援，不能獨完|因為失去了強有力的援助，不能獨自保全。
+亡|動詞|喪失、失去|諸侯之所亡與戰敗而亡者，其實亦百倍|諸侯賄賂秦國所喪失的土地，與戰敗所喪失的土地相比，實際也多百倍。
+患|名詞|禍患、憂患|則秦之所大欲，諸侯之所大患|那麼秦國最大的欲望，就是諸侯最大的禍患。
+厥|代詞|他們的、其|思厥先祖父|想想他們的祖先父輩。
+彌|副詞|更加、越|奉之彌繁，侵之愈急|（諸侯）奉送得越多，（秦國）侵犯得就越厲害。
+固|副詞|本來|至於顛覆，理固宜然|以至於覆滅，按道理本來就應該這樣。
+宜|副詞|應該、應當|至於顛覆，理固宜然|以至於覆滅，按道理本來就應該這樣。
+斯|代詞|這|是故燕雖小國而後亡，斯用兵之效也|因此燕國雖然是小國，卻最後才滅亡，這就是用兵抗秦的效果。
+速|動詞|招致、加速|至丹以荊卿為計，始速禍焉|到了燕太子丹用荊軻刺秦王作為對付秦國的計策，才招致禍患。
+嘗|副詞|曾經|趙嘗五戰于秦，二敗而三勝|趙國曾經與秦國交戰五次，兩次戰敗三次戰勝。
+卻|動詞|擊退、使……退卻|後秦擊趙者再，李牧連卻之|後來秦國兩次攻打趙國，李牧接連擊退了它。
+洎|介詞|等到、及|洎牧以讒誅|等到李牧因讒言而被殺。
+讒|名詞|讒言、誣陷的話|洎牧以讒誅|等到李牧因讒言而被殺。
+革滅|動詞|消滅、滅亡|且燕趙處秦革滅殆盡之際|况且燕趙兩國正處在秦國把其他國家消滅得差不多的時候。
+殆|副詞|幾乎、將近|且燕趙處秦革滅殆盡之際|况且燕趙兩國正處在秦國把其他國家消滅得差不多的時候。
+當|連詞|假使、倘若|當與秦相較，或未易量|如果與秦國較量，或許不容易估量勝負。
+量|動詞|估量、衡量|當與秦相較，或未易量|如果與秦國較量，或許不容易估量勝負。
+誠|副詞|實在、確實|戰敗而亡，誠不得已|戰敗而滅亡，實在是不得已。
+向使|連詞|假使、如果|向使三國各愛其地|假使韓、魏、楚三國都愛惜他們的土地。
+幷力|動詞|合力、併合力量|幷力西嚮|合力向西對抗秦國。
+趨|動詞|趨向、走向|日削月割，以趨於亡！|（土地）一天天一月月地被削割，以至走向滅亡！
+劫|動詞|脅迫、劫持|為國者無使為積威之所劫哉|治理國家的人不要被敵人積久的威勢所脅迫啊！
+茍|連詞|如果|茍以天下之大，而從六國破亡之故事|如果憑著天下之大，卻重蹈六國滅亡的覆轍。
+</script>
+
+<script type="text/plain" class="dat" data-id="t8" data-num="八" data-title="始得西山宴遊記" data-author="柳宗元">
+僇人|名詞|有罪的人、受刑戮的人|自余為僇人|自從我成為有罪的人。
+是|代詞|這|居是州|居住在這個州。
+恒|副詞|常常|恒惴慄|常常恐懼不安。
+惴慄|形容詞|恐懼戰慄、害怕|恒惴慄|常常恐懼不安。
+隙|名詞|空閒、閒暇|其隙也|在閒暇的時候。
+施施|形容詞|緩慢行走的樣子|則施施而行，漫漫而遊|就緩緩地行走，漫無目的地遊玩。
+窮|動詞|走到盡頭、窮盡|上高山，入深林，窮迴溪|登上高山，走入深林，走到迴環曲折的溪流的盡頭。
+披|動詞|撥開|到則披草而坐|到了目的地就撥開草坐下。
+更相|副詞|互相、交相|醉則更相枕以臥|喝醉了就互相枕靠著睡下。
+極|動詞|到、到達|意有所極，夢亦同趣|心裏想到哪裏，夢也跟著到哪裏。
+趣|動詞（通假字）|通「趨」，往、赴|意有所極，夢亦同趣|心裏想到哪裏，夢也跟著到哪裏。
+異|動詞（意動用法）|感到奇異、以……為異|望西山，始指異之|望見西山，才指點著它，感到它奇特。
+斫|動詞|砍伐|過湘江，緣染溪，斫榛莽|渡過湘江，沿著染溪，砍伐叢生的草木。
+遨|動詞|隨意遊玩、觀賞|攀援而登，箕踞而遨|攀援著登上山頂，張開雙腿而坐，形如筲箕一樣坐著隨意遊玩、觀賞。
+岈|形容詞|（山谷）高聳深邃的樣子|岈然窪然，若垤若穴|（山峰）高聳深邃，（谷地）低陷，有的像小土堆，有的像洞穴。
+窪|形容詞|低陷、低凹|岈然窪然，若垤若穴|（山峰）高聳深邃，（谷地）低陷，有的像小土堆，有的像洞穴。
+垤|名詞|小土堆、蟻冢|岈然窪然，若垤若穴|（山峰）高聳深邃，（谷地）低陷，有的像小土堆，有的像洞穴。
+攢蹙|動詞|聚集、緊縮|尺寸千里，攢蹙累積|千里之內的景物彷彿聚集在尺寸之間，堆積在眼前。
+遯|動詞|逃、隱藏|莫得遯隱|沒有甚麼能逃避隱藏（盡收眼底）。
+縈|動詞|縈繞、纏繞|縈青繚白，外與天際|青山白水相互纏繞，遠處與天相接。
+繚|動詞|纏繞|縈青繚白，外與天際|青山白水相互纏繞，遠處與天相接。
+際|動詞|交接、相接|縈青繚白，外與天際|青山白水相互纏繞，遠處與天相接。
+培塿|名詞|小土丘|不與培塿為類|不與那些小土丘同類。
+俱|動詞|融合、同在|悠悠乎與顥氣俱，而莫得其涯|（心胸）廣闊悠遠，與天地間的大氣融合為一體，而找不到它的邊際。
+涯|名詞|邊際|悠悠乎與顥氣俱，而莫得其涯|（心胸）廣闊悠遠，與天地間的大氣融合為一體，而找不到它的邊際。
+洋洋乎|形容詞|廣闊浩大、悠然自得的樣子|洋洋乎與造物者遊，而不知其所窮|（心情）廣大自得，與造物者同遊，而不知它的盡頭。
+窮|名詞|盡頭|洋洋乎與造物者遊，而不知其所窮|（心情）廣大自得，與造物者同遊，而不知它的盡頭。
+引|動詞|拿起、端起|引觴滿酌，頹然就醉|拿起酒杯斟滿酒，喝得東倒西歪地醉了。
+觴|名詞|酒杯|引觴滿酌，頹然就醉|拿起酒杯斟滿酒，喝得東倒西歪地醉了。
+冥合|動詞|暗合、融為一體|心凝形釋，與萬化冥合|心神凝聚，形體消散，與萬物暗暗融合為一體。
+嚮|名詞|從前、以往|然後知吾嚮之未始遊|這才知道我以前不曾真正遊覽過。
+志|動詞|記、記述|遊於是乎始，故為之文以志|真正的遊覽從此開始，所以寫下這篇文章來記述它。
+</script>
+
+<script type="text/plain" class="dat" data-id="t9" data-num="九" data-title="出師表" data-author="諸葛亮">
+崩殂|動詞|帝王之死|先帝創業未半，而中道崩殂|先帝開創大業還不到一半，就中途去世了。
+誠|副詞|實在、確實|此誠危急存亡之秋也|這實在是危急存亡的時刻啊。
+秋|名詞|時候、時刻|此誠危急存亡之秋也|這實在是危急存亡的時刻啊。
+懈|動詞|懈怠、鬆懈|然侍衞之臣，不懈於內|然而侍衛大臣在朝廷內毫不懈怠。
+蓋|連詞|因為（推究原因）|蓋追先帝之殊遇|這是因為追念先帝的特殊恩遇。
+殊遇|名詞|特殊的知遇、厚待|蓋追先帝之殊遇|這是因為追念先帝的特殊恩遇。
+宜|副詞|應該、應當|誠宜開張聖聽，以光先帝遺德|（陛下）實在應該廣開言路，來發揚光大先帝遺留下來的美德。
+光|動詞|發揚光大|誠宜開張聖聽，以光先帝遺德|（陛下）實在應該廣開言路，來發揚光大先帝遺留下來的美德。
+恢弘|動詞|擴大、發揚|恢弘志士之氣|振奮志士的氣概。
+菲薄|動詞|輕視、小看|不宜妄自菲薄|不應該隨便看輕自己。
+陟|動詞|提拔、提升|陟罰臧否，不宜異同|提拔、懲罰、表揚、批評，標準不應有所不同。
+臧|動詞|原意為「善」，後引伸為褒賞。|陟罰臧否，不宜異同|提拔、懲罰、褒賞、貶斥，標準不應有所不同。
+否|動詞|原意為「惡」，後引伸為貶斥。|陟罰臧否，不宜異同|提拔、懲罰、褒賞、貶斥，標準不應有所不同。
+有司|名詞|主管官員|若有作姦、犯科，及為忠善者，宜付有司|如果有做壞事、觸犯法令，以及忠心行善的，應該交給主管官員評定賞罰。
+昭|動詞|顯示、彰顯|以昭陛下平明之治|來顯示陛下公平清明的治理。
+平明|形容詞|公平清明|以昭陛下平明之治|來顯示陛下公平清明的治理。
+良實|名詞|善良誠實(的人)|此皆良實，志慮忠純|這些都是善良誠實(的人)，志向和思慮忠誠純正。
+志慮|名詞|志向和思慮|此皆良實，志慮忠純|這些都是善良誠實的人，志向和思慮忠誠純正。
+忠純|形容詞|忠誠純正|此皆良實，志慮忠純|這些都是善良誠實的人，志向和思慮忠誠純正。
+咨|動詞|詢問、商議|事無大小，悉以咨之|事情無論大小，都拿來詢問他們。
+裨補|動詞|彌補、補救|必能裨補闕漏|一定能夠彌補缺漏。
+闕漏|名詞|缺漏、缺失|必能裨補闕漏|一定能夠彌補缺漏。
+淑均|形容詞|和善公正|將軍向寵，性行淑均，曉暢軍事|將軍向寵，性情和善，處事公正，精通軍事。
+曉暢|動詞|通曉、精通|將軍向寵，性行淑均，曉暢軍事|將軍向寵，性情和善，處事公正，精通軍事。
+行陣|名詞|軍隊、行列|必能使行陣和睦，優劣得所|一定能使軍隊和睦，才能高低不同的人各得其所。
+貞良|形容詞|貞：堅貞、良：賢良|此悉貞良死節之臣|這些都是堅貞賢良、能以死守節報國的臣子。
+死節|動詞|為節義而死、以死報國|此悉貞良死節之臣|這些都是堅貞賢良、能以死報國的臣子。
+躬|副詞|親自|臣本布衣，躬耕於南陽|我本來是個平民，在南陽親自耕種。
+苟|副詞|苟且、姑且|苟全性命於亂世|在亂世中苟且保全性命。
+卑|形容詞|身份低微|先帝不以臣卑鄙|先帝不因為我身份低微、見識淺陋而嫌棄我。
+鄙|形容詞|見識淺陋|先帝不以臣卑鄙|先帝不因為我身份低微、見識淺陋(而嫌棄我)。
+猥|副詞|辱、委屈（謙辭）|猥自枉屈，三顧臣於草廬之中|（先帝）委屈自己，降低身份，三次到草廬中探望我。
+枉屈|動詞|屈尊、委屈|猥自枉屈，三顧臣於草廬之中|（先帝）委屈自己，降低身份，三次到草廬中探望我。
+夙|名詞|早、早晨|受命以來，夙夜憂歎，恐託付不效|接受遺命以來，早晚憂愁嘆息，恐怕託付的事情不能奏效。
+不毛|動詞短語|不長草木（的地方）|故五月渡瀘，深入不毛|所以在五月渡過瀘水，深入到不長草木的荒蕪之地。
+斟酌|動詞|反覆考慮、權衡|至於斟酌損益，進盡忠言|至於處理政務時反覆權衡利弊，毫無保留地進獻忠言。
+慢|形容詞|怠慢、疏忽|則責攸之、禕、允等之慢，以彰其咎|就責怪攸之、禕、允等人的怠慢，來顯明他們的過失。
+彰|動詞|表明、顯明|則責攸之、禕、允等之慢，以彰其咎|就責怪攸之、禕、允等人的怠慢，來顯明他們的過失。
+諮諏|動詞|詢問、徵求|陛下亦宜自謀，以諮諏善道，察納雅言|陛下也應該自己謀劃，徵詢治國的好方法，明察並採納正直的言論。
+察|動詞|明察、審察|陛下亦宜自謀，以諮諏善道，察納雅言|陛下也應該自己謀劃，徵詢治國的好方法，明察並採納正直的言論。
+納|動詞|採納|陛下亦宜自謀，以諮諏善道，察納雅言|陛下也應該自己謀劃，徵詢治國的好方法，明察並採納正直的言論。
+</script>
+
+<script type="text/plain" class="dat" data-id="t10" data-num="十" data-title="魚我所欲也章" data-author="《孟子》">
+欲|動詞|想要、喜愛|魚，我所欲也|魚，是我想要的。
+亦|副詞|也|熊掌，亦我所欲也|熊掌，也是我想要的。
+兼|副詞|同時、一起|二者不可得兼|兩者不能同時得到。
+舍|動詞|捨棄|舍魚而取熊掌者也|就捨棄魚而選取熊掌。
+甚|動詞|超過、勝過|生亦我所欲，所欲有甚於生者|生命也是我想要的，但想要的東西有比生命更重要的。
+苟|副詞|苟且|故不為苟得也|所以不做苟且偷生的事。
+惡|動詞|厭惡|死亦我所惡|死亡也是我厭惡的。
+患|名詞|禍患、災難|故患有所不辟也|所以有的禍患我不躲避。
+辟|動詞（通假字）|通「避」，躲避|故患有所不辟也|所以有的禍患我不躲避。
+如使|連詞|假使、如果|如使人之所欲莫甚於生|假使人們想要的東西沒有比生命更重要的。
+莫|代詞|沒有甚麼（無定代詞）|如使人之所欲莫甚於生|假使人們想要的東西沒有比生命更重要的。
+用|動詞|使用、採用|則凡可以得生者，何不用也|那麼凡是可以保全生命的手段，有甚麼不可以使用呢？
+由|介詞短語|遵從、遵照|由是則生而有不用也|遵照這（一推論）可以活命的方法竟然有人不接受。
+是|代詞|這、這種|非獨賢者有是心也|不僅賢人有這種心。
+耳|助詞|語氣詞，罷了|人皆有之，賢者能勿喪耳|人人都有，只不過賢人能夠不喪失罷了。
+簞|名詞|盛飯的圓形竹器|一簞食，一豆羮，得之則生，弗得則死|一竹籃飯，一碗湯，得到它就能生存，得不到就會餓死。
+豆|名詞|盛食物的高腳器皿|一簞食，一豆羮，得之則生，弗得則死|一竹籃飯，一碗湯，得到它就能生存，得不到就會餓死。
+弗|副詞|不|一簞食，一豆羮，得之則生，弗得則死|一竹籃飯，一碗湯，得到它就能生存，得不到就會餓死。
+嘑|動詞|呵斥、吆喝（不禮貌地呼喝）|嘑爾而與之|吆喝著給他吃。
+與|動詞|給予|嘑爾而與之|吆喝著給他吃。
+蹴|動詞|用腳踩踏|蹴爾而與之|用腳踩踏著給他吃。
+萬鍾|名詞|優厚的俸祿（鍾：古代量器）|萬鍾則不辨禮義而受|面對萬鍾的俸祿，卻不辨別是否合乎禮義就接受了。
+辯|動詞|通「辨」、辨別|萬鍾則不辨禮義而受|面對萬鍾的俸祿，卻不辨別是否合乎禮義就接受了。
+加|名詞|益處、好處|萬鍾於我何加焉|萬鍾的俸祿對我有甚麼益處呢？
+得|動詞（通假字）|通「德」，感激|所識窮乏者得我與|是為了所認識的窮困的人感激我嗎？
+鄉|副詞（通假字）|通「向」，從前|鄉為身死而不受|從前寧死也不接受。
+已|動詞|停止|是亦不可已乎|這不也可以停止了嗎？
+</script>
+
+<script type="text/plain" class="dat" data-id="t11" data-num="十一" data-title="師說" data-author="韓愈">
+受|動詞（通假字）|通「授」，傳授|師者，所以傳道、受業、解惑也|老師，是用來傳授道理、教授學業、解答疑難的。
+孰|疑問代詞|誰|人非生而知之者，孰能無惑|人不是生下來就懂得道理的，誰能沒有疑惑？
+固|副詞|本來|生乎吾前，其聞道也，固先乎吾，吾從而師之|在我之前出生的人，他懂得道理本來比我早，我跟隨他並以他為師。
+師|動詞（意動用法）|以……為師|生乎吾前，其聞道也，固先乎吾，吾從而師之|在我之前出生的人，他懂得道理本來比我早，我跟隨他並以他為師。
+師|名詞|老師|古之學者必有師|古代求學的人一定有老師。
+師|動詞|學習|吾師道也，夫庸知其年之先後生於吾乎|我學習的是道理，哪管他出生比我早還是比我晚呢？
+庸|副詞|哪裏、豈（表示反問）|吾師道也，夫庸知其年之先後生於吾乎|我學習的是道理，哪管他出生比我早還是比我晚呢？
+出|動詞|超出|古之聖人，其出人也遠矣|古代的聖人，他們超出一般人很遠。
+下|動詞|低於、不及|其下聖人也亦遠矣|（現在的一般人）低於聖人也很遠。
+益|副詞|更加|是故聖益聖，愚益愚|因此聖人更加聖明，愚人更加愚昧。
+明|形容詞|明智|小學而大遺，吾未見其明也|小的方面學習，大的方面卻放棄了，我沒看出他們的明智。
+足|副詞|值得|位卑則足羞，官盛則近諛|以地位低的人為師就值得羞恥，以官位高的人為師就近乎諂媚。
+盛|形容詞|高、大（官位高）|位卑則足羞，官盛則近諛|以地位低的人為師就十分羞恥，以官位高的人為師就近乎諂媚。
+諛|動詞|諂媚、奉承|位卑則足羞，官盛則近諛|以地位低的人為師就十分羞恥，以官位高的人為師就近乎諂媚。
+拘|動詞|拘泥、束縛|不拘於時，請學於余|不受時俗的限制，請求跟我學習。
+嘉|動詞|讚賞、嘉許|余嘉其能行古道|我讚賞他能夠遵行古人的從師之道。
+貽|動詞|贈送|作師說以貽之|寫這篇《師說》來贈送給他。
+</script>
+
+<script type="text/plain" class="dat" data-id="t12" data-num="十二" data-title="勸學（節錄）" data-author="《荀子》">
+已|動詞|停止|君子曰：學不可以已|君子說：學習不可以停止。
+中|動詞|符合、合乎|木直中繩，輮以為輪，其曲中規|木材直得合乎墨線，用火烘烤使它彎曲做成車輪，它的弧度就合乎圓規了。
+輮|動詞（通假字）|通「煣」，用火烘烤木材使它彎曲|木直中繩，輮以為輪，其曲中規|木材直得合乎墨線，用火烘烤使它彎曲做成車輪，它的弧度就合乎圓規了。
+規|名詞|圓規|木直中繩，輮以為輪，其曲中規|木材直得合乎墨線，用火烘烤使它彎曲做成車輪，它的弧度就合乎圓規了。
+槁|形容詞|枯、枯乾|雖有槁暴、不復挺者|即使又被風吹日曬而枯乾，也不會再挺直。
+暴|動詞（通假字）|通「曝」，曬|雖有槁暴、不復挺者|即使又被風吹日曬而枯乾，也不會再挺直。
+受繩|動詞短語|經過墨線比量|故木受繩則直，金就礪則利|所以木材經過墨線比量就直了，刀劍在磨刀石上磨過就鋒利了。
+就|動詞|靠近、接近|故木受繩則直，金就礪則利|所以木材經過墨線比量就直了，刀劍在磨刀石上磨過就鋒利了。
+礪|名詞|磨刀石|故木受繩則直，金就礪則利|所以木材經過墨線比量就直了，刀劍在磨刀石上磨過就鋒利了。
+參|副詞|數次|君子博學而日參省乎己|君子廣博地學習，而且每天檢查省察自己。
+省|動詞|檢查、省察|君子博學而日參省乎己|君子廣博地學習，而且每天檢查省察自己。
+知|名詞（通假字）|通「智」，智慧|則知明而行無過矣|就會智慧明達，行為沒有過錯了。
+行|名詞|行為|則知明而行無過矣|就會智慧明達，行為沒有過錯了。
+嘗|副詞|曾經|吾嘗終日而思矣，不如須臾之所學也|我曾經整天思考，卻不如片刻學習的收穫多。
+須臾|名詞|片刻、一會兒|吾嘗終日而思矣，不如須臾之所學也|我曾經整天思考，卻不如片刻學習的收穫多。
+跂|動詞|踮起腳跟|吾嘗跂而望矣|我曾經踮起腳跟眺望。
+博|形容詞|廣、廣闊|不如登高之博見也|卻不如登上高處看得廣闊。
+疾|形容詞|洪亮、強勁|順風而呼，聲非加疾也，而聞者彰|順著風呼喊，聲音並沒有更加洪亮，但聽的人聽得更清楚。
+彰|形容詞|清楚、明顯|順風而呼，聲非加疾也，而聞者彰|順著風呼喊，聲音並沒有更加洪亮，但聽的人聽得更清楚。
+假|動詞|借助、憑藉|假輿馬者，非利足也，而致千里|借助車馬的人，不是腳走得快，卻能到達千里之外。
+輿|名詞|車|假輿馬者，非利足也，而致千里|借助車馬的人，不是腳走得快，卻能到達千里之外。
+利|形容詞|快、迅疾|假輿馬者，非利足也，而致千里|借助車馬的人，不是腳走得快，卻能到達千里之外。
+足|名詞|腳|假輿馬者，非利足也，而致千里|借助車馬的人，不是腳走得快，卻能到達千里之外。
+楫|名詞|船槳|假舟楫者，非能水也，而絕江河|借助船槳的人，不是會游泳，卻能橫渡江河。
+水|動詞（名詞作動詞）|游水、游泳|假舟楫者，非能水也，而絕江河|借助船槳的人，不是會游泳，卻能橫渡江河。
+絕|動詞|橫渡|假舟楫者，非能水也，而絕江河|借助船槳的人，不是會游泳，卻能橫渡江河。
+神明|名詞|最高的智慧|積善成德，而神明自得，聖心備焉。|積累善行養成美德，就能得到最高的智慧，具備聖人的心境。
+自得|動詞|自然獲得|積善成德，而神明自得，聖心備焉。|積累善行養成美德，就能得到最高的智慧，具備聖人的心境。
+備|動詞|具備|積善成德，而神明自得，聖心備焉。|積累善行養成美德，就能得到最高的智慧，具備聖人的心境。
+跬步|名詞|半步（古代跨出一腳為跬）|故不積跬步，無以至千里|所以不積累一步半步，就無法到達千里之外。
+騏驥|名詞|駿馬|騏驥一躍，不能十步|駿馬跳躍一次，不能超過十步。
+駑|名詞|劣馬|駑馬十駕，功在不舍|劣馬拉車走十天，也能走得很遠，成功在於不停下來。
+舍|動詞|停止、放棄|駑馬十駕，功在不舍|劣馬拉車走十天，也能走得很遠，成功在於不停下來。
+鍥|動詞|雕刻|鍥而舍之，朽木不折|刻幾下就停下來，腐朽的木頭也刻不斷。
+朽|形容詞|腐朽|鍥而舍之，朽木不折|刻幾下就停下來，腐朽的木頭也刻不斷。
+鏤|動詞|雕刻、鏤刻|鍥而不舍，金石可鏤|不停地刻下去，金屬和石頭也能雕刻成功。
+跪|名詞|腳、腿（蟹腿）|蟹六跪而二螯|螃蟹有六條腿和兩隻鉗。
+螯|名詞|蟹鉗|蟹六跪而二螯|螃蟹有六條腿和兩隻鉗。
+蟺|名詞（通假字）|通「鱔」，黃鱔|非蛇蟺之穴無可寄託者|但沒有蛇和黃鱔的洞穴，就無處安身。
+寄託|動詞|託身、安身|非蛇蟺之穴無可寄託者|但沒有蛇和黃鱔的洞穴，就無處安身。
+躁|形容詞|浮躁、不專一|用心躁也|這是因為用心浮躁。
+</script>
+
+<!-- ===== 選擇題資料（自評測考出題內容） ===== -->
+
+<script type="text/plain" class="qdat" data-id="t1">
+0|「不仁者，不可以久處約」中「約」的意思是：|束縛|約定|貧困|簡約節省|C
+1|「不以其道得之，不處也」中「處」的意思是：|接受|處理|居住|處罰|A
+2|「知者利仁」中「知」的意思是：|知道|通知|智慧|認識|C
+3|「知者利仁」中「利」的意思是：|便利|利益|鋒利|利用|D
+4|「不以其道得之，不去也」中「去」的意思是：|除掉|過去|前往|拋棄|D
+5|「君子去仁，惡乎成名」中「惡乎」的意思是：|於何處|怎麼|厭惡|兇惡|B
+6|「造次必於是」中「造次」的意思是：|倉促急迫|偶然一次|製造次品|魯莽無禮|A
+7|「顛沛必於是」中「顛沛」的意思是：|跌倒受傷|顛倒錯亂|困頓的時候|顛簸搖晃|C
+8|「克己復禮為仁」中「克」的意思是：|能夠|戰勝敵人|克制約束|克服困難|C
+9|「克己復禮為仁」中「復」的意思是：|回復、返歸|答覆|重複|恢復元氣|A
+10|「回雖不敏」中「敏」的意思是：|勤勉|聰敏|迅速|謙遜|B
+11|「今之孝者，是謂能養」中「養」的意思是：|修養|飼養|培養|奉養|D
+12|「至於犬馬，皆能有養」中「養」的意思是：|飼養|奉養|培養|修養|A
+13|「事父母幾諫」中「幾」的意思是：|幾次|委婉|幾個|幾乎|B
+14|「見志不從」中「志」的意思是：|志氣|記錄|志向|意願|D
+15|「勞而不怨」中「勞」的意思是：|勞累|憂勞|慰勞|勞動|B
+16|「君子不重則不威」中「重」的意思是：|莊重|沉重|重複|重要|A
+17|「君子不重則不威」中「威」的意思是：|威脅|權威|威儀|威力|C
+18|「過則勿憚改」中「憚」的意思是：|懶惰|害怕、畏懼|疲倦|擔心|B
+19|「君子坦蕩蕩」中「坦蕩蕩」的意思是：|空蕩無物|悠閒自在|整齊有序|平坦開闊|D
+20|「小人長戚戚」中「戚戚」的意思是：|悲傷痛哭|憂愁不安|窮困潦倒|親戚關係|B
+21|「君子義以為質」中「質」的意思是：|質問|本質|品質|質量|B
+22|「孫以出之」中「孫」的意思是：|孫子|繼承|子孫|謙遜|D
+23|「君子病無能焉」中「病」的意思是：|疾病|毛病|擔心|疲弱|C
+24|「君子求諸己」中「諸」的意思是：|眾、各|的|諸位|之於|D
+</script>
+
+<script type="text/plain" class="qdat" data-id="t2">
+0|「滕子京謫守巴陵郡」中「謫」的意思是：|貶官|遷徙|譴責|任命|A
+1|「百廢具興」中「具」的意思是：|工具|全都|具有|具體|B
+2|「增其舊制」中「制」的意思是：|控制|製造|制度|規模|D
+3|「屬予作文以記之」中「屬」的意思是：|類屬|囑咐|連接|屬於|B
+4|「予觀夫巴陵勝狀」中「勝狀」的意思是：|勝利的景象|完美的狀態|美好的景色|勝利的形勢|C
+5|「銜遠山，吞長江」中「銜」的意思是：|官職等級|接觸|懷恨|含|D
+6|「前人之述備矣」中「備」的意思是：|設備|戒備|詳盡、完備|準備|C
+7|「南極瀟湘」中「極」的意思是：|北極|窮盡|直達、直通到|極端|C
+8|「若夫霪雨霏霏」中「霪雨」的意思是：|春雨|連綿不斷的雨|大雨傾盆|暴雨|B
+9|「濁浪排空」中「排」的意思是：|推、擠|排除|推開|排列|A
+10|「山岳潛形」中「潛」的意思是：|潛水|偷襲|潛藏|深沉|C
+11|「檣傾楫摧」中「檣」的意思是：|桅杆|船帆|船身|船艙|A
+12|「檣傾楫摧」中「楫」的意思是：|船槳|船桅|船舵|船繩|A
+13|「薄暮冥冥」中「薄」的意思是：|稀薄|輕薄|淺薄|迫近|D
+14|「薄暮冥冥」中「暮」的意思是：|傍晚|清晨|中午|深夜|A
+15|「則有去國懷鄉」中「去」的意思是：|離開|過去|前往|除去|A
+16|「滿目蕭然」中「蕭」的意思是：|竹簫|肅靜|風聲|蕭條|D
+17|「長煙一空」中「空」的意思是：|天空|空虛|消散|空缺|C
+18|「此樂何極」中「極」的意思是：|最高的|北極|盡頭|直達|C
+19|「把酒臨風」中「把」的意思是：|拿著|把柄|將|把握|A
+20|「居廟堂之高」中「廟堂」的意思是：|祠堂|朝廷|廳堂|寺廟|B
+21|「然則何時而樂耶」中「耶」的意思是：|「了。」|「而已。」|「呢？」|「啊！」|C
+22|「噫！微斯人」中「噫」的意思是：|感嘆詞|轉折詞|疑問詞|疑惑語|A
+23|「微斯人」中「微」的意思是：|微小|細微|暗中|沒有|D
+24|「微斯人」中「斯」的意思是：|分裂|那|這|於是|C
+25|「吾誰與歸」中「歸」的意思是：|歸結|回家|歸還|歸依|D
+</script>
+
+<script type="text/plain" class="qdat" data-id="t3">
+0|「使人遺趙王書」中「遺」的意思是：|遺忘|送給|遺留|遺失|B
+1|「願以十五城請易璧」中「易」的意思是：|平易|容易|交換|改變|C
+2|「竊計欲亡走燕」中「竊」的意思是：|偷竊|竊取|公開|私下|D
+3|「而君幸於趙王」中「幸」的意思是：|寵幸|慶幸|希望|幸運|A
+4|「故燕王欲結於君」中「結」的意思是：|打結|結交|結果|結束|B
+5|「今君乃亡趙走燕」中「亡」的意思是：|丟失|滅亡|死亡|逃亡|D
+6|「曲在趙」中「曲」的意思是：|理虧|樂曲|彎曲|曲折|A
+7|「均之二策」中「均」的意思是：|平均|權衡|均勻|都|B
+8|「相如因持璧」中「因」的意思是：|原因|隨即|因為|依靠|B
+9|「卻立」中「卻」的意思是：|卻是|推辭|退後|但是|C
+10|「秦貪，負其彊」中「負」的意思是：|倚仗|背負|失敗|違背|A
+11|「嚴大國之威以修敬也」中「嚴」的意思是：|嚴肅|嚴厲|尊重|嚴格|C
+12|「嚴大國之威以修敬也」中「修敬」的意思是：|修理敬意|修養恭敬之心|修行敬畏之道|表示敬意|D
+13|「禮節甚倨」中「倨」的意思是：|傲慢|嚴肅|隨便|恭敬|A
+14|「相如持其璧睨柱」中「睨」的意思是：|偷看|斜視|凝視|怒視|B
+15|「乃辭謝固請」中「固」的意思是：|本來|堅決|鞏固|堅固|B
+16|「相如度秦王」中「度」的意思是：|制度|氣度|揣測|度過|C
+17|「特以詐佯為予趙城」中「佯」的意思是：|洋溢|詳細|假裝|樣貌|C
+18|「舍相如廣成傳」中「舍」的意思是：|房舍|安排住宿|施捨|捨棄|B
+19|「乃使其從者衣褐」中「衣」的意思是：|衣服|包裹|衣料|穿|D
+20|「乃使其從者衣褐」中「褐」的意思是：|粗布衣服|棕色染料|褐色|短衣|A
+21|「臣誠恐見欺於王」中「誠」的意思是：|誠心|實在、確實|誠懇|誠實|B
+22|「唯大王與羣臣孰計議之」中「唯」的意思是：|應答之聲|唯一|只有|希望|D
+23|「唯大王與羣臣孰計議之」中「孰」的意思是：|仔細|誰|成熟|哪個|A
+24|「卒廷見相如」中「卒」的意思是：|死亡|士兵|終於|突然|C
+25|「欲毋行」中「毋」的意思是：|不要|母親|否則|沒有|A
+26|「秦王飲酒酣」中「酣」的意思是：|甜美|大聲喧嘩|酒醉|酒喝得暢快|D
+27|「左右欲刃相如」中「刃」的意思是：|刀刃|鋒利|刺傷|用刀殺|D
+28|「相如張目叱之」中「叱」的意思是：|嘆息|喝罵|大笑|進食|B
+29|「左右皆靡」中「靡」的意思是：|浪費|奢靡|迷惑|退卻倒下|D
+30|「於是秦王不懌」中「懌」的意思是：|翻譯|喜悅|容易|疑惑|B
+31|「秦王竟酒」中「竟」的意思是：|竟然|境界|究竟|完畢|D
+32|「且相如素賤人」中「素」的意思是：|向來|白色|元素|樸素|A
+33|「且相如素賤人」中「賤」的意思是：|地位低微|便宜|卑鄙|輕視|A
+34|「恐懼殊甚」中「殊甚」的意思是：|殊勝|不同|十分|特殊|C
+35|「相如雖駑」中「駑」的意思是：|憤怒|愚笨|奴僕|努力|B
+36|「以先國家之急而後私讎也」中「讎」的意思是：|應答|售賣|仇恨|校對|C
+</script>
+
+<script type="text/plain" class="qdat" data-id="t4">
+0|「山居秋暝」中「暝」的意思是：|傍晚|明亮|命運|冥想|A
+1|「竹喧歸浣女」中「喧」的意思是：|宣告|溫暖|喧譁|旋轉|C
+2|「竹喧歸浣女」中「浣」的意思是：|完整|洗滌|緩慢|美麗|B
+3|「隨意春芳歇」中「隨意」的意思是：|跟隨|隨便|任憑|隨從|C
+4|「隨意春芳歇」中「芳」的意思是：|美麗|芳香|芬芳|花草|D
+5|「隨意春芳歇」中「歇」的意思是：|枯萎|停止|歇腳|休息|A
+6|「獨酌無相親」中「酌」的意思是：|飲酒|選擇|考慮|酌量取捨|A
+7|「月既不解飲」中「解」的意思是：|解開|懂得|消解|解釋|B
+8|「影徒隨我身」中「徒」的意思是：|徒弟|門徒|徒步|白白地|D
+9|「暫伴月將影」中「將」的意思是：|帶領|與|將軍|將要|B
+10|「行樂須及春」中「及春」的意思是：|到了春天|等待春天|趁著春光|春天來臨|C
+11|「我歌月徘徊」中「徘徊」的意思是：|匆匆離去|旋轉搖擺|猶豫不決|來回移動|D
+12|「相期邈雲漢」中「期」的意思是：|期望|約定|時期|期限|B
+13|「相期邈雲漢」中「邈」的意思是：|深邃|模糊|渺小|遙遠|D
+14|「相期邈雲漢」中「雲漢」的意思是：|雲彩|天空|銀河|漢水|C
+15|「西山寇盜莫相侵」中「莫」的意思是：|不能|不要|沒有|不是|B
+16|「可憐後主還祠廟」中「可憐」的意思是：|值得同情|憐憫|可歎|可愛|C
+17|「可憐後主還祠廟」中「還」的意思是：|歸還|仍然|更加|返回|B
+18|「日暮聊為梁甫吟」中「暮」的意思是：|深夜|中午|清晨|傍晚|D
+19|「日暮聊為梁甫吟」中「聊」的意思是：|姑且|聊天|依賴|無聊|A
+20|「日暮聊為梁甫吟」中「為」的意思是：|吟詠|成為|替|作為|A
+</script>
+
+<script type="text/plain" class="qdat" data-id="t5">
+0|「人道是、三國周郎赤壁」中「道」的意思是：|引導|說|道路|道理|B
+1|「亂石穿空」中「穿」的意思是：|穿越|穿衣|直插|衣著|C
+2|「談笑間、檣櫓灰飛煙滅」中「檣櫓」的意思是：|戰船|船長|船帆|船員|A
+3|「早生華髮」中「華」的意思是：|花白|繁華|華麗|中華|A
+4|「一尊還酹江月」中「酹」的意思是：|飲酒|以酒灑地祭奠|敬酒|斟酒|B
+5|「乍煖還寒時候」中「乍」的意思是：|詐騙|驚訝|忽然|開始|C
+6|「最難將息」中「將息」的意思是：|停止|將近夜晚|調養休息|將要休息|C
+7|「怎敵他晚來風急」中「敵」的意思是：|敵人|匹敵|仇敵|抵擋|D
+8|「滿地黃花堆積，憔悴損」中「憔悴」的意思是：|枯萎凋零|憂愁痛苦|面容消瘦|疲倦不堪|A
+9|「如今有誰堪摘」中「堪」的意思是：|承受|勝任|堪稱|能夠|D
+10|「這次第，怎一箇愁字了得」中「次第」的意思是：|等級|次序|一一|光景|D
+11|「眾裏尋他千百度」中「度」的意思是：|次|度過|估量|制度|A
+12|「驀然迴首」中「驀然」的意思是：|悄悄地|緩緩地|寂靜地|忽然|D
+13|「那人卻在、燈火闌珊處」中「闌珊」的意思是：|搖曳不定|燦爛明亮|熱鬧繁華|稀疏零落|D
+</script>
+
+<script type="text/plain" class="qdat" data-id="t6">
+0|「魏王貽我大瓠之種」中「貽」的意思是：|贈送|遺忘|遺留|傳給|A
+1|「我樹之成而實五石」中「樹」的意思是：|建立|樹木|樹立|種植|D
+2|「非不呺然大也」中「呺然」的意思是：|高聳的樣子|悠然的樣子|空虛的樣子|空大的樣子|D
+3|「吾為其無用而掊之」中「掊」的意思是：|分開|打破、擊破|拋棄|捧起|B
+4|「夫子固拙於用大矣」中「固」的意思是：|堅固|本來|實在|鞏固|C
+5|「夫子固拙於用大矣」中「拙」的意思是：|粗劣|愚蠢|笨拙|謙遜|C
+6|「宋人有善為不龜手之藥者」中「善」的意思是：|善良|擅長|友好|妥善|B
+7|「宋人有善為不龜手之藥者」中「龜」的意思是：|緩慢|烏龜|凍裂|龜縮|C
+8|「世世以洴澼絖為事」中「洴澼」的意思是：|曬乾|漂洗|製作|編織|B
+9|「聚族而謀曰」中「謀」的意思是：|商議|謀略|計謀|謀求|A
+10|「今一朝而鬻技百金」中「鬻」的意思是：|傳授|粥|賣|贈送|C
+11|「客得之，以說吳王」中「說」的意思是：|通「悅」，高興|說話|遊說|解說|C
+12|「越有難，吳王使之將」中「將」的意思是：|將要|統率軍隊|和、與|將軍|B
+13|「何不慮以為大樽而浮於江湖」中「慮」的意思是：|考慮|憂慮|擔心|謀慮|A
+14|「其大本擁腫而不中繩墨」中「中」的意思是：|中等|命中|中間|符合|D
+15|「立之塗，匠者不顧」中「塗」的意思是：|道路|塗抹|污穢|泥土|A
+16|「衆所同去也」中「去」的意思是：|前往|捨棄|過去|離開|B
+17|「子獨不見狸狌乎」中「獨」的意思是：|難道|孤獨|獨自|獨特|A
+18|「卑身而伏」中「卑」的意思是：|低伏|謙卑|卑微|卑鄙|A
+19|「中於機辟，死於罔罟」中「中」的意思是：|中毒|觸碰|中間|符合|B
+20|「中於機辟，死於罔罟」中「機辟」的意思是：|關鍵|時機|機智|機關|D
+21|「中於機辟，死於罔罟」中「罔罟」的意思是：|枷鎖|繩索|陷阱|網|D
+22|「此能為大矣，而不能執鼠」中「執」的意思是：|堅持|捕捉|執行|持拿|B
+23|「患其無用」中「患」的意思是：|禍患|擔心|患難|疾病|B
+24|「何不樹之於無何有之鄉」中「無何有」的意思是：|無名之處|不存在|甚麼都沒有|有甚麼|C
+25|「彷徨乎無為其側」中「彷徨」的意思是：|猶豫不決|徘徊|迷惘|慌張不安|B
+26|「不夭斤斧，物無害者」中「夭」的意思是：|繁盛|嬌美|摧殘|年輕|C
+27|「無所可用，安所困苦哉」中「安」的意思是：|安置|安寧|哪裏|安樂|C
+</script>
+
+<script type="text/plain" class="qdat" data-id="t7">
+0|「非兵不利」中「利」的意思是：|便利|鋒利|利益|有利|B
+1|「戰不善」中「善」的意思是：|妥善|友好|善良|擅長|A
+2|「弊在賂秦」中「弊」的意思是：|遮蔽|作弊|疲憊|弊病、弊端|D
+3|「率賂秦耶」中「率」的意思是：|輕率|率領|全都|效率|C
+4|「不賂者以賂者喪」中「以」的意思是：|認為|以及|用|因為|D
+5|「蓋失強援，不能獨完」中「蓋」的意思是：|蓋章|覆蓋|因為|大概|C
+6|「不能獨完」中「完」的意思是：|保全|完成|完畢|完整|A
+7|「諸侯之所亡與戰敗而亡者」中「亡」的意思是：|滅亡|死亡|逃亡|失去|D
+8|「諸侯之所大患」中「患」的意思是：|禍患|擔心|險阻|患病|A
+9|「思厥先祖父」中「厥」的意思是：|於是|那個|昏厥|他們的|D
+10|「奉之彌繁」中「彌」的意思是：|久遠|彌補|遍布|更加|D
+11|「至於顛覆，理固宜然」中「固」的意思是：|堅固|本來|固執|實在|B
+12|「至於顛覆，理固宜然」中「宜」的意思是：|應當|便宜|合適|事宜|A
+13|「斯用兵之效也」中「斯」的意思是：|那|這|分裂|於是|B
+14|「至丹以荊卿為計，始速禍焉」中「速」的意思是：|快速|招致|迅速|速度|B
+15|「趙嘗五戰于秦」中「嘗」的意思是：|曾經|嘗試|品嘗|經常|A
+16|「李牧連卻之」中「卻」的意思是：|退後|擊退|但是|推辭|B
+17|「洎牧以讒誅」中「洎」的意思是：|到達|自從|等到|於是|C
+18|「洎牧以讒誅」中「讒」的意思是：|誹謗|慚愧|誣陷的話|貪婪|C
+19|「秦革滅殆盡之際」中「革滅」的意思是：|消滅、滅亡|熄滅|變革|革除弊端|A
+20|「秦革滅殆盡之際」中「殆」的意思是：|大概|幾乎|危險|懈怠|B
+21|「當與秦相較」中「當」的意思是：|假使|抵擋|應當|擔當|A
+22|「或未易量」中「量」的意思是：|估量|器量|容量|數量|A
+23|「戰敗而亡，誠不得已」中「誠」的意思是：|誠實|誠懇|誠心|實在|D
+24|「向使三國各愛其地」中「向使」的意思是：|向來|派遣|曾經|假使|D
+25|「幷力西嚮」中「幷力」的意思是：|吞併|節省力量|併合力量|盡力|C
+26|「日削月割，以趨於亡」中「趨」的意思是：|快跑|趨附|趨勢|走向|D
+27|「為國者無使為積威之所劫哉」中「劫」的意思是：|劫難|搶劫|脅迫|災禍|C
+28|「茍以天下之大」中「茍」的意思是：|暫且|隨便|如果|苟且|C
+</script>
+
+<script type="text/plain" class="qdat" data-id="t8">
+0|「自余為僇人」中「僇人」的意思是：|僕人|蒙羞之人|戮力同心|有罪的人|D
+1|「居是州」中「是」的意思是：|是非|對|這|於是|C
+2|「恒惴慄」中「恒」的意思是：|固定|永恒|常常|恒心|C
+3|「恒惴慄」中「惴慄」的意思是：|寒冷發抖|恐懼戰慄|自怨自艾|悲痛不已|B
+4|「其隙也」中「隙」的意思是：|閒暇|嫌隙|空間|縫隙|A
+5|「施施而行」中「施施」的意思是：|施恩|整齊有序|緩慢行走的樣子|匆匆忙忙|C
+6|「窮迴溪」中「窮」的意思是：|走到盡頭|貧窮|窮困|徹底|A
+7|「到則披草而坐」中「披」的意思是：|披戴|撥開|披露|披散|B
+8|「醉則更相枕以臥」中「更相」的意思是：|更加|更替|更換|互相|D
+9|「意有所極」中「極」的意思是：|窮盡|到達|極端|北極|B
+10|「夢亦同趣」中「趣」的意思是：|趣味|旨趣|往、赴|興趣|C
+11|「望西山，始指異之」中「異」的意思是：|奇怪|分別|不同|感到奇異|D
+12|「斫榛莽」中「斫」的意思是：|清除|焚燒|砍伐|耕種|C
+13|「攀援而登，箕踞而遨」中「遨」的意思是：|隨意遊玩|傲慢|翱翔|遨遊天際|A
+14|「岈然窪然」中「岈」的意思是：|山峰相連|山石嶙峋|山勢險峻|高聳深邃|D
+15|「岈然窪然」中「窪」的意思是：|污濁|低陷|水坑|深潭|B
+16|「若垤若穴」中「垤」的意思是：|小土堆|堤壩|山丘|池塘|A
+17|「尺寸千里，攢蹙累積」中「攢蹙」的意思是：|皺縮|擠出|層層疊疊|聚集緊縮|D
+18|「莫得遯隱」中「遯」的意思是：|消失|逃、隱藏|遁入|隱約|B
+19|「縈青繚白」中「縈」的意思是：|縈繞|盤旋|混雜|縈懷|A
+20|「縈青繚白」中「繚」的意思是：|繚亂|遼闊|糾纏|繚繞|D
+21|「外與天際」中「際」的意思是：|邊際|連接|之間|際遇|B
+22|「不與培塿為類」中「培塿」的意思是：|田壟|小土丘|培土|大山|B
+23|「悠悠乎與顥氣俱」中「俱」的意思是：|詳細|全部|融合同在|都|C
+24|「而莫得其涯」中「涯」的意思是：|海岸|水邊|生涯|邊際|D
+25|「洋洋乎與造物者遊」中「洋洋乎」的意思是：|廣闊浩大|得意洋洋|海洋廣闊|洋洋灑灑|A
+26|「而不知其所窮」中「窮」的意思是：|盡頭|尋根究底|貧窮|窘迫|A
+27|「引觴滿酌」中「引」的意思是：|吸引|牽引|引領|拿起|D
+28|「引觴滿酌」中「觴」的意思是：|酒宴|酒樽|酒壺|酒杯|D
+29|「心凝形釋，與萬化冥合」中「冥合」的意思是：|暗暗融合|冥想會合|永恆結合|暗中開合|A
+30|「然後知吾嚮之未始遊」中「嚮」的意思是：|面對|從前|嚮往|方向|B
+31|「故為之文以志」中「志」的意思是：|志向|立志|記述|意願|C
+</script>
+
+<script type="text/plain" class="qdat" data-id="t9">
+0|「先帝創業未半，而中道崩殂」中「崩殂」的意思是：|國家滅亡|山崩塌陷|帝王之死|衰敗|C
+1|「此誠危急存亡之秋也」中「誠」的意思是：|確實|誠懇|誠信|誠意|A
+2|「此誠危急存亡之秋也」中「秋」的意思是：|收成|秋天|時刻|歲月|C
+3|「然侍衞之臣，不懈於內」中「懈」的意思是：|解散|疲倦|懈怠、鬆懈|放鬆|C
+4|「蓋追先帝之殊遇」中「蓋」的意思是：|蓋章|因為|大概|遮蓋|B
+5|「蓋追先帝之殊遇」中「殊遇」的意思是：|特別的際會|特殊的知遇|特殊的機遇|不同的遭遇|B
+6|「誠宜開張聖聽」中「宜」的意思是：|應該|便宜|事宜|合適|A
+7|「以光先帝遺德」中「光」的意思是：|光芒|光彩|光榮|發揚光大|D
+8|「恢弘志士之氣」中「恢弘」的意思是：|寬宏|恢復|擴大發揚|弘揚品德|C
+9|「不宜妄自菲薄」中「菲薄」的意思是：|淺薄|單薄|微薄|輕視|D
+10|「陟罰臧否」中「陟」的意思是：|貶謫|登高|提拔|攀登|C
+11|「陟罰臧否」中「臧」的意思是：|批評|收藏|提升|褒賞|D
+12|「陟罰臧否」中「否」的意思是：|貶斥|否定|讚賞|處罰|A
+13|「宜付有司」中「有司」的意思是：|公司|主管官員|司令|司儀|B
+14|「以昭陛下平明之治」中「昭」的意思是：|招來|彰顯|昭告|明亮|B
+15|「以昭陛下平明之治」中「平明」的意思是：|公平清明|平靜光明|和平清朗|太平盛世|A
+16|「此皆良實」中「良實」的意思是：|良好確實|忠良實幹|優秀的人才|善良誠實|D
+17|「此皆良實，志慮忠純」中「志慮」的意思是：|志向和思慮|志氣|考慮志向|思慮周密|A
+18|「此皆良實，志慮忠純」中「忠純」的意思是：|單純忠厚|忠誠純正|忠心耿耿|純粹的忠心|B
+19|「事無大小，悉以咨之」中「咨」的意思是：|諮文|詢問|嘆息|感嘆|B
+20|「必能裨補闕漏」中「裨補」的意思是：|彌補|幫助|補充|增補|A
+21|「必能裨補闕漏」中「闕漏」的意思是：|欠缺|遺失|缺漏|丟棄|C
+22|「將軍向寵，性行淑均」中「淑均」的意思是：|平均分配|善良賢淑|淑雅端莊|和善公正|D
+23|「曉暢軍事」中「曉暢」的意思是：|暢快|曉得|通曉、精通|明曉|C
+24|「必能使行陣和睦」中「行陣」的意思是：|行伍|軍隊|行動陣仗|陣地|B
+25|「此悉貞良死節之臣」中「貞良」的意思是：|美好良善|忠貞不渝|貞潔善良|堅貞賢良|D
+26|「此悉貞良死節之臣」中「死節」的意思是：|死守貞操|寧死不屈|死守節義|死於節理|C
+27|「臣本布衣，躬耕於南陽」中「躬」的意思是：|親自|彎腰|身體|恭敬|A
+28|「苟全性命於亂世」中「苟」的意思是：|隨心|暫時|如果|苟且|D
+29|「先帝不以臣卑鄙」中「卑」的意思是：|謙卑|卑劣|身份低微|淺漏|C
+30|「先帝不以臣卑鄙」中「鄙」的意思是：|鄙視|偏遠|粗俗|見識淺陋|D
+31|「猥自枉屈」中「猥」的意思是：|卑鄙|眾多|猥瑣|委屈（謙辭）|D
+32|「猥自枉屈」中「枉屈」的意思是：|屈尊|屈從|彎曲|冤枉|A
+33|「夙夜憂歎」中「夙」的意思是：|早晨|快速|平素|日常|A
+34|「故五月渡瀘，深入不毛」中「不毛」的意思是：|沒有毛髮|貧瘠|不長草木（的地方）|荒蕪|C
+35|「至於斟酌損益」中「斟酌」的意思是：|反覆考慮|商量|品酒|斟酒|A
+36|「則責攸之、禕、允等之慢」中「慢」的意思是：|緩慢|怠慢|傲慢|慢待|B
+37|「以彰其咎」中「彰」的意思是：|顯明|表揚|明亮|彰德|A
+38|「以諮諏善道」中「諮諏」的意思是：|商議|詢問|感嘆|討論|B
+39|「察納雅言」中「察」的意思是：|審察|考察人才|察覺|觀察事物|A
+40|「察納雅言」中「納」的意思是：|進獻|收納|採納|放進|C
+</script>
+
+<script type="text/plain" class="qdat" data-id="t10">
+0|「魚，我所欲也」中「欲」的意思是：|將要|慾望|貪欲|想要、喜愛|D
+1|「熊掌，亦我所欲也」中「亦」的意思是：|都|也|又|總是|B
+2|「二者不可得兼」中「兼」的意思是：|兼職|重複|同時|兼併|C
+3|「舍魚而取熊掌者也」中「舍」的意思是：|停留|放開|捨棄|房舍|C
+4|「所欲有甚於生者」中「甚」的意思是：|甚麼|超過|非常|嚴重|B
+5|「故不為苟得也」中「苟」的意思是：|暫時|如果|貪婪|苟且|D
+6|「死亦我所惡」中「惡」的意思是：|兇惡|厭惡|邪惡|怎麼|B
+7|「故患有所不辟也」中「患」的意思是：|禍患|擔心|害怕|患病|A
+8|「故患有所不辟也」中「辟」的意思是：|偏僻|開闢|法律|通「避」，躲避|D
+9|「如使人之所欲莫甚於生」中「如使」的意思是：|讓|假使|派遣|好像|B
+10|「如使人之所欲莫甚於生」中「莫」的意思是：|不|不要|不能|沒有甚麼（無定代詞）|D
+11|「則凡可以得生者，何不用也」中「用」的意思是：|任用|做|功用|需要|B
+12|「由是則生而有不用也」中「由」的意思是：|起點|於是|因此|遵從|D
+13|「非獨賢者有是心也」中「是」的意思是：|於是|對|這|是非|C
+14|「人皆有之，賢者能勿喪耳」中「耳」的意思是：|聽說|耳朵|罷了|啊|C
+15|「一簞食，一豆羮」中「簞」的意思是：|盛飯的竹器|竹擔|竹椅|竹席|A
+16|「一簞食，一豆羮」中「豆」的意思是：|盛食物的器皿|瓦罐|花生|豆類|A
+17|「得之則生，弗得則死」中「弗」的意思是：|沒有|無|莫|不|D
+18|「嘑爾而與之」中「嘑」的意思是：|招手|呼喝|怒罵|呼喚|B
+19|「嘑爾而與之」中「與」的意思是：|讚許|和、同|給予|參與|C
+20|「蹴爾而與之」中「蹴」的意思是：|緊迫|急促|踩踏|皺眉|C
+21|「萬鍾則不辨禮義而受」中「萬鍾」的意思是：|鐘鼓|優厚的俸祿|一萬次|樂器|B
+22|「萬鍾則不辯禮義而受」中「辯」的意思是：|辨別|了解|分析|辯論|A
+23|「萬鍾於我何加焉」中「加」的意思是：|益處|增加|施加|添加|A
+24|「所識窮乏者得我與」中「得」的意思是：|能夠|感激|得到|必須|B
+25|「鄉為身死而不受」中「鄉」的意思是：|鄉里|家鄉|從前|面向|C
+26|「是亦不可已乎」中「已」的意思是：|太、很|完畢|已經|停止|D
+</script>
+
+<script type="text/plain" class="qdat" data-id="t11">
+0|「師者，所以傳道、受業、解惑也」中「受」的意思是：|接受|遭受|傳授|承受|C
+1|「人非生而知之者，孰能無惑」中「孰」的意思是：|甚麼|熟悉|誰|哪個|C
+2|「其聞道也，固先乎吾」中「固」的意思是：|本來|堅固|必定|固執|A
+3|「吾從而師之」中「師」的意思是：|以……為師|學習|老師|效法|A
+4|「古之學者必有師」中「師」的意思是：|以……為師|學習|老師|效法|C
+5|「吾師道也」中「師」的意思是：|傳授|學習|老師|以……為師|B
+6|「夫庸知其年之先後生於吾乎」中「庸」的意思是：|哪裏|用|需要|平庸|A
+7|「古之聖人，其出人也遠矣」中「出」的意思是：|出現|超出|出來|離開|B
+8|「其下聖人也亦遠矣」中「下」的意思是：|不及|下屬|下面|下降|A
+9|「是故聖益聖，愚益愚」中「益」的意思是：|好處|利益|更加|增加|C
+10|「小學而大遺，吾未見其明也」中「明」的意思是：|清楚|明亮|明顯|明智|D
+11|「位卑則足羞」中「足」的意思是：|充足|值得|足夠|腳|B
+12|「位卑則足羞，官盛則近諛」中「盛」的意思是：|繁盛|盛放|興盛|大|D
+13|「官盛則近諛」中「諛」的意思是：|愉快|奉承|歌頌|說話|B
+14|「不拘於時」中「拘」的意思是：|束縛|拘捕|拘留|拘謹|A
+15|「余嘉其能行古道」中「嘉」的意思是：|嘉禾|美好|增加|讚賞|D
+16|「作師說以貽之」中「貽」的意思是：|遺忘|贈送|遺留|傳給|B
+</script>
+
+<script type="text/plain" class="qdat" data-id="t12">
+0|「君子曰：學不可以已」中「已」的意思是：|已經|完畢|罷了|停止|D
+1|「木直中繩」中「中」的意思是：|命中|中等|符合|中間|C
+2|「輮以為輪」中「輮」的意思是：|車輪|揉搓|柔軟|用火烘烤|D
+3|「其曲中規」中「規」的意思是：|圓規|規則|規律|規矩|A
+4|「雖有槁暴」中「槁」的意思是：|死亡|稿件|枯乾|高大|C
+5|「雖有槁暴」中「暴」的意思是：|殘暴|曝曬|暴露|突然|B
+6|「故木受繩則直」中「受繩」的意思是：|以繩量度|經過墨線校正|接受繩子|用繩索捆綁|B
+7|「金就礪則利」中「就」的意思是：|於是|就業|靠近|完成|C
+8|「金就礪則利」中「礪」的意思是：|鋒利|嚴厲|磨刀石|磨練|C
+9|「君子博學而日參省乎己」中「參」的意思是：|參加|參考|參與|數次|D
+10|「君子博學而日參省乎己」中「省」的意思是：|行政區|省察|節省|省略|B
+11|「則知明而行無過矣」中「知」的意思是：|知道|智慧|知曉|知識|B
+12|「則知明而行無過矣」中「行」的意思是：|行為|行列|施行|走路|A
+13|「吾嘗終日而思矣」中「嘗」的意思是：|經常|嘗試|品嘗|曾經|D
+14|「不如須臾之所學也」中「須臾」的意思是：|片刻|需要|等待|長時間|A
+15|「吾嘗跂而望矣」中「跂」的意思是：|跛腳|攀登|伸長脖子|踮起腳跟|D
+16|「不如登高之博見也」中「博」的意思是：|眾多|廣闊|博學|博取|B
+17|「順風而呼，聲非加疾也」中「疾」的意思是：|痛恨|疾病|洪亮|快速|C
+18|「聲非加疾也，而聞者彰」中「彰」的意思是：|清楚|表彰|顯著|彰顯|A
+19|「假輿馬者」中「假」的意思是：|借助|虛假|假冒|假期|A
+20|「假輿馬者」中「輿」的意思是：|輿論|坐騎|轎子|車|D
+21|「非利足也」中「利」的意思是：|利益|鋒利|迅疾|有利|C
+22|「非利足也」中「足」的意思是：|充足|值得|足夠|腳|D
+23|「假舟楫者」中「楫」的意思是：|船隻|船艙|船槳|船帆|C
+24|「非能水也」中「水」的意思是：|游水|潛水|河水|水性|A
+25|「而絕江河」中「絕」的意思是：|斷絕|橫渡|極端|絕對|B
+26|「積善成德，而神明自得」中「神明」的意思是：|神仙|神靈|精神|智慧|D
+27|「積善成德，而神明自得」中「自得」的意思是：|自然獲得|自己領悟|自我滿足|洋洋得意|A
+28|「聖心備焉」中「備」的意思是：|守備|準備|完備|具備|D
+29|「故不積跬步」中「跬步」的意思是：|小步|慢步|跟隨的步伐|半步|D
+30|「騏驥一躍，不能十步」中「騏驥」的意思是：|戰馬|良馬|老馬|劣馬|B
+31|「駑馬十駕」中「駑」的意思是：|良馬|老馬|劣馬|戰馬|C
+32|「駑馬十駕，功在不舍」中「舍」的意思是：|房舍|放棄|安置|離開|B
+33|「鍥而舍之，朽木不折」中「鍥」的意思是：|投入|契約|深入|雕刻|D
+34|「鍥而舍之，朽木不折」中「朽」的意思是：|腐朽|枯乾|軟弱|衰敗|A
+35|「鍥而不舍，金石可鏤」中「鏤」的意思是：|打磨|鑽孔|雕刻|鑲嵌|C
+36|「蟹六跪而二螯」中「跪」的意思是：|蟹腿|跪拜|爪|關節|A
+37|「蟹六跪而二螯」中「螯」的意思是：|觸角|蟹鉗|殼|蟹爪|B
+38|「非蛇蟺之穴無可寄託者」中「蟺」的意思是：|黃鱔|泥鰍|蚯蚓|蟲類|A
+39|「非蛇蟺之穴無可寄託者」中「寄託」的意思是：|依賴|託付|安身|寄存|C
+40|「用心躁也」中「躁」的意思是：|煩躁|浮躁|燥熱|急躁|B
+</script>
+<!-- ===== 資料結束 ===== -->
+
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const hl=(s,w)=>{const e=esc(s),k=esc(w),i=e.indexOf(k);return i<0?e:e.slice(0,i)+'<mark>'+k+'</mark>'+e.slice(i+k.length)};
+
+/* ===== 一、讀取資料 ===== */
+const TEXTS=$$('script.dat').map(el=>{const d=el.dataset;
+  const words=el.textContent.split('\n').map(l=>l.trim()).filter(Boolean).map(l=>l.split('|').map(x=>x.trim()))
+    .filter(p=>p.length>=5&&p[0]&&p[2]&&p[3])
+    .map((p,i)=>({id:d.id+'_'+i,tid:d.id,word:p[0],pos:p[1]||'',mean:p[2],orig:p[3],trans:p[4]||'',dis:(p[5]||'').split('#').map(x=>x.trim()).filter(Boolean),src:p[6]||''}));
+  return{id:d.id,num:d.num||'',title:d.title||'',author:d.author||'',words}}).filter(t=>t.words.length);
+const ALL=TEXTS.flatMap(t=>t.words);
+const byId=Object.fromEntries(ALL.map(w=>[w.id,w]));
+const tById=Object.fromEntries(TEXTS.map(t=>[t.id,t]));
+/* 讀取選擇題資料（自評測考出題內容），每行：字卡序號|題幹|A|B|C|D|答案 */
+$$('script.qdat').forEach(el=>{const t=tById[el.dataset.id];if(!t)return;
+  el.textContent.split('\n').map(l=>l.trim()).filter(Boolean).forEach(l=>{const p=l.split('|').map(x=>x.trim());
+    const w=t.words[+p[0]];if(w)w.quiz={stem:p[1],opts:[p[2],p[3],p[4],p[5]],ans:'ABCD'.indexOf(p[6])}})});
+
+/* ===== 二、進度儲存 ===== */
+const KEY='dse_fanwen12_v1';
+let S={mastered:{},wrong:{},hist:[],sound:true,a2hs:false};
+try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+addEventListener('pagehide',save);
+document.addEventListener('visibilitychange',()=>{paused=document.hidden;if(paused)save()});
+
+/* ===== 三、音效（iOS 需先由用戶點按啟動） ===== */
+let AC=null;
+const ensureAC=()=>{try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume()}catch(e){}};
+document.addEventListener('touchend',ensureAC,{once:true,passive:true});
+document.addEventListener('click',ensureAC,{once:true});
+function beep(kind){if(!S.sound)return;ensureAC();if(!AC)return;try{const t=AC.currentTime;
+  const tone=(f,st,d,v=.12)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t+st);g.gain.linearRampToValueAtTime(v,t+st+.01);g.gain.exponentialRampToValueAtTime(.001,t+st+d);o.connect(g).connect(AC.destination);o.start(t+st);o.stop(t+st+d+.02)};
+  if(kind==='ok'){tone(660,0,.15);tone(990,.12,.25)}else if(kind==='bad'){tone(220,0,.3,.1);tone(180,.1,.3,.08)}else tone(520,0,.08,.06)}catch(e){}}
+function updSound(){$('#soundBtn').classList.toggle('off',!S.sound)}
+$('#soundBtn').onclick=()=>{S.sound=!S.sound;save();updSound();toast(S.sound?'音效已開啟':'音效已關閉');beep('tap')};
+updSound();
+
+/* ===== 四、通用 UI ===== */
+let toastT;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),1800)}
+function confirmBox(msg){return new Promise(res=>{const m=$('#modal');$('#modalMsg').textContent=msg;m.hidden=false;const done=v=>{m.hidden=true;$('#modalYes').onclick=$('#modalNo').onclick=null;res(v)};$('#modalYes').onclick=()=>done(true);$('#modalNo').onclick=()=>done(false)})}
+function show(v){$$('section.view').forEach(s=>s.classList.toggle('active',s.id==='view-'+v));$$('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===v));window.scrollTo(0,0);
+  if(v==='home')renderMenu();if(v==='wrong')renderWrong();if(v==='stats')renderStats();if(v==='final')renderFinal();$('#wrongBadge').textContent=Object.keys(S.wrong).length}
+$$('nav button').forEach(b=>b.onclick=()=>show(b.dataset.view));
+$('#goFinal').onclick=()=>show('final');$('#goWrong').onclick=()=>show('wrong');$('#goStats').onclick=()=>show('stats');
+$('#backHome').onclick=$('#quizBack').onclick=$('#resultHome').onclick=()=>show('home');
+
+/* ===== 五、主選單 ===== */
+const EARTH='子丑寅卯辰巳午未申酉戌亥';
+function renderMenu(){const g=$('#menuGrid');if(!TEXTS.length){g.innerHTML='<div class="empty">尚未載入字詞資料。</div>';return}
+  g.innerHTML=TEXTS.map((t,ti)=>{const dn=EARTH[ti]||t.num,m=t.words.filter(w=>S.mastered[w.id]).length,wr=t.words.filter(w=>S.wrong[w.id]).length,pc=Math.round(m/t.words.length*100);
+  return`<div class="scroll-card"><div class="vt">${dn}卷</div><div class="body"><h3><span class="num">${dn}</span>${esc(t.title)}</h3><div class="author">${esc(t.author)}</div><div class="pbar"><i style="width:${pc}%"></i></div><div class="meta"><span>${t.words.length} 字詞</span><span>已掌握 ${m}（${pc}%）</span>${wr?`<span class="w">錯題 ${wr}</span>`:''}</div><div class="acts"><button class="ink" data-learn="${t.id}">學習字卡</button><button data-quiz="${t.id}">自我測考</button></div></div></div>`}).join('')}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-learn],[data-quiz],[data-card],[data-i]');if(!b)return;
+  if(b.dataset.learn)openLearn(b.dataset.learn);else if(b.dataset.quiz)openQuizSetup(b.dataset.quiz);
+  else if(b.dataset.card){const w=byId[b.dataset.card];if(w)openLearn(w.tid,'all',null,w.id)}
+  else if(b.dataset.i!==undefined&&b.classList.contains('opt'))answer(+b.dataset.i)});
+
+/* ===== 六、學習字卡 ===== */
+let L={tid:null,list:[],i:0,filter:'all',custom:null};
+function openLearn(tid,filter='all',list=null,focusId=null){L.tid=tid;L.filter=filter;L.custom=list;const t=tById[tid];
+  $('#learnTitle').textContent=t?t.title:'錯題溫習';$('#learnAuthor').textContent=t?t.author:'跨篇章';$('#learnToQuiz').style.display=t?'':'none';
+  applyFilter();if(focusId){const k=L.list.findIndex(w=>w.id===focusId);if(k>=0){L.i=k;renderCard()}}show('learn')}
+function applyFilter(){const base=L.custom||(tById[L.tid]?tById[L.tid].words:[]);
+  L.list=base.filter(w=>L.filter==='all'||(L.filter==='mastered'&&S.mastered[w.id])||(L.filter==='unmastered'&&!S.mastered[w.id])||(L.filter==='wrong'&&S.wrong[w.id]));
+  L.i=0;$$('#filterChips .chip').forEach(c=>c.classList.toggle('active',c.dataset.f===L.filter));renderCard()}
+function renderCard(){const w=L.list[L.i],wrap=$('#cardWrap');
+  if(!w){wrap.innerHTML='<div class="empty">此範圍沒有字詞。</div>';$('#counter').textContent='0 / 0';return}
+  const t=tById[w.tid]||{title:'',author:''},srcTxt=esc(t.title)+(w.src?' ‧ '+esc(w.src):'');
+  wrap.innerHTML=`<div class="card${S.mastered[w.id]?' mastered':''}" id="card"><div class="card-inner">
+   <div class="face front"><div class="tag">${srcTxt}</div><div class="sentence"><div class="text">${hl(w.orig,w.word)}</div><div class="src">${esc(t.author)}</div><div class="ask">句中「<mark>${esc(w.word)}</mark>」是甚麼意思？</div></div><div class="hint">點一下翻轉</div><div class="mastered-stamp">已掌握</div></div>
+   <div class="face back"><div class="tag">字解</div><div class="scroll"><div class="defmain"><div class="bigw">${esc(w.word)}</div><div><div class="meaning">${esc(w.mean)}</div><span class="pos">${esc(w.pos)}</span></div></div>
+   <div class="block"><h4>原文</h4><div class="orig">${hl(w.orig,w.word)}<span class="src">${srcTxt}</span></div></div><div class="block"><h4>句解</h4><div class="tr">${esc(w.trans)}</div></div></div></div></div></div>`;
+  $('#counter').textContent=`${L.i+1} / ${L.list.length}`;$('#masterBtn').textContent=S.mastered[w.id]?'✘ 取消已掌握':'✔ 標記已掌握'}
+const flip=()=>{const c=$('#card');if(c){c.classList.toggle('flipped');beep('tap')}};
+const move=d=>{if(!L.list.length)return;L.i=(L.i+d+L.list.length)%L.list.length;renderCard()};
+$('#flipBtn').onclick=flip;$('#prevBtn').onclick=()=>move(-1);$('#nextBtn').onclick=()=>move(1);
+$('#shuffleBtn').onclick=()=>{L.list=shuffle(L.list);L.i=0;renderCard();toast('已洗牌')};
+$('#masterBtn').onclick=()=>{const w=L.list[L.i];if(!w)return;if(S.mastered[w.id])delete S.mastered[w.id];else{S.mastered[w.id]=1;beep('ok')}save();renderCard();$('#wrongBadge').textContent=Object.keys(S.wrong).length};
+$('#filterChips').onclick=e=>{const c=e.target.closest('.chip');if(c){L.filter=c.dataset.f;applyFilter()}};
+$('#learnToQuiz').onclick=()=>{if(L.tid)openQuizSetup(L.tid)};
+/* 點一下翻轉；左右滑動切換（忽略螢幕邊緣起手，避免與 Safari 返回手勢衝突） */
+let tx=0,ty=0,swiped=false,edge=false;
+const cw=$('#cardWrap');
+cw.addEventListener('touchstart',e=>{const p=e.touches[0];tx=p.clientX;ty=p.clientY;swiped=false;edge=tx<24||tx>innerWidth-24},{passive:true});
+cw.addEventListener('touchend',e=>{if(edge)return;const p=e.changedTouches[0],dx=p.clientX-tx,dy=p.clientY-ty;if(Math.abs(dx)>50&&Math.abs(dy)<60){swiped=true;move(dx<0?1:-1)}},{passive:true});
+cw.addEventListener('click',e=>{if(swiped){swiped=false;return}if(e.target.closest('.card'))flip()});
+/* 鍵盤 */
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
+  if($('#view-learn').classList.contains('active')){if(e.key==='ArrowLeft')move(-1);else if(e.key==='ArrowRight')move(1);else if(e.key===' '||e.key==='Enter'){e.preventDefault();flip()}else if(e.key==='m'||e.key==='M')$('#masterBtn').click()}
+  else if($('#quizPlay').style.display!=='none'&&$('#view-quiz').classList.contains('active')){const k=['1','2','3','4'].indexOf(e.key),kl='ABCD'.indexOf(e.key.toUpperCase());const ki=k>=0?k:kl;if(ki>=0&&!Q.answered)answer(ki);else if(e.key==='Enter'&&Q.answered)$('#nextQ').click()}});
+
+/* ===== 七、測驗（題目、選項及答案取自《DSE 範文文言字詞選擇題》） ===== */
+const ansOf=w=>w.quiz.opts[w.quiz.ans];
+let Q={items:[],i:0,score:0,wrong:[],mode:'text',tid:null,label:'',answered:false};
+const rv=n=>(document.querySelector(`input[name=${n}]:checked`)||{}).value;
+function openQuizSetup(tid){Q.tid=tid;const t=tById[tid];$('#quizSub').textContent=t.title+' ‧ '+t.author;$('#quizSetup').style.display='';$('#quizPlay').style.display='none';$('#quizResult').style.display='none';show('quiz')}
+$('#setupToLearn').onclick=()=>openLearn(Q.tid);
+$('#startQuiz').onclick=()=>{const t=tById[Q.tid];if(!t)return;const sc=rv('scope'),n=rv('qn');
+  let ws=t.words.filter(w=>w.quiz&&(sc==='all'||(sc==='unmastered'&&!S.mastered[w.id])||(sc==='wrong'&&S.wrong[w.id])));
+  ws=shuffle(ws);if(n!=='all')ws=ws.slice(0,+n);startQuiz(ws,'text',t.title,Q.tid,+rv('qtimer'))};
+/* 計時器 */
+let qTimerInt=null,qEnd=0;
+function stopTimer(){if(qTimerInt){clearInterval(qTimerInt);qTimerInt=null}}
+function startTimer(sec){stopTimer();const el=$('#qTimer');if(!sec){el.style.display='none';return}
+  el.style.display='';qEnd=Date.now()+sec*1000;
+  const tick=()=>{const ms=qEnd-Date.now();if(ms<=0){el.textContent='時間到';stopTimer();timeUp();return}
+    const s=Math.ceil(ms/1000);el.textContent=`⏱ ${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;el.classList.toggle('low',s<=10)};
+  tick();qTimerInt=setInterval(tick,250)}
+function timeUp(){if(!$('#view-quiz').classList.contains('active')||$('#quizPlay').style.display==='none')return;
+  for(let k=0;k<Q.items.length;k++){const it=Q.items[k];if(it.ok===null){it.ok=false;Q.wrong.push({w:it.w,you:'（未作答）'})}}
+  toast('時間到！');beep('bad');finishQuiz()}
+function startQuiz(words,mode,label,tid,timer){words=words.filter(w=>w.quiz);if(!words.length){toast('此範圍沒有字詞');return}
+  Q={items:words.map(w=>({w,opts:shuffle(w.quiz.opts),ok:null})),i:0,score:0,wrong:[],mode,label,tid:tid||null,answered:false,timer:timer||0};
+  $('#quizTitle').textContent=mode==='final'?'試前總測':mode==='wrong'?'錯題測考':'自我測考';if(mode!=='text')$('#quizSub').textContent=label;
+  $('#quizSetup').style.display='none';$('#quizResult').style.display='none';$('#quizPlay').style.display='';show('quiz');renderQ();startTimer(Q.timer)}
+function renderQ(){const it=Q.items[Q.i],w=it.w,t=tById[w.tid]||{title:''};Q.answered=false;
+  $('#qIndex').textContent=`第 ${Q.i+1} / ${Q.items.length} 題`;$('#qScore').textContent=`答對 ${Q.score}`;$('#qBar').style.width=(Q.i/Q.items.length*100)+'%';
+  $('#qType').textContent=t.title+(w.src?' ‧ '+w.src:'');$('#qStem').innerHTML=hl(w.orig,w.word);$('#qSrc').textContent=`句中「${w.word}」的意思是？`;
+  $('#qOptions').innerHTML=it.opts.map((o,i)=>`<button class="opt" data-i="${i}"><span class="n">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`).join('');
+  const fb=$('#qFeedback');fb.className='feedback';fb.innerHTML='';$('#nextQ').style.display='none';$('#nextQ').textContent=Q.i===Q.items.length-1?'查看結果':'下一題 ▶'}
+function answer(i){if(Q.answered)return;Q.answered=true;const it=Q.items[Q.i],w=it.w,ok=it.opts[i]===ansOf(w);it.ok=ok;
+  $$('#qOptions .opt').forEach((b,j)=>{b.disabled=true;if(it.opts[j]===ansOf(w))b.classList.add('correct');else if(j===i)b.classList.add('wrong')});
+  if(ok){Q.score++;beep('ok');splash()}else{Q.wrong.push({w,you:it.opts[i]});S.wrong[w.id]=(S.wrong[w.id]||0)+1;save();beep('bad')}
+  const fb=$('#qFeedback');fb.className='feedback show '+(ok?'good':'badf');
+  fb.innerHTML=`<div class="stamp${ok?'':' bad'}">${ok?'對':'錯'}</div><div class="head">${ok?'答對了！':'答錯了'}</div><div>「<span class="big">${esc(w.word)}</span>」在此解作 <span class="big">${esc(w.mean)}</span>（${esc(w.pos)}）</div><div style="color:var(--ink2)">句解：${esc(w.trans)}</div>`;
+  $('#qScore').textContent=`答對 ${Q.score}`;$('#nextQ').style.display='';$('#wrongBadge').textContent=Object.keys(S.wrong).length}
+$('#nextQ').onclick=()=>{if(Q.i<Q.items.length-1){Q.i++;renderQ();const p=$('#quizPlay');if(p.getBoundingClientRect().top<0)p.scrollIntoView({block:'start'})}else finishQuiz()};
+$('#quitQuiz').onclick=async()=>{if(await confirmBox('確定結束本次測驗？已答題目不會計入紀錄。')){stopTimer();show('home')}};
+function finishQuiz(){stopTimer();$('#quizPlay').style.display='none';$('#quizResult').style.display='';const n=Q.items.length,pc=Math.round(Q.score/n*100);
+  $('#ring').style.background=`conic-gradient(var(--ink) ${pc}%,var(--paper3) 0)`;$('#ringText').innerHTML=`${pc}%<small>${Q.score} / ${n}</small>`;
+  $('#resultMsg').textContent=pc===100?'全部答對，字字珠璣！':pc>=80?'表現優異，再接再厲。':pc>=60?'尚算穩妥，請檢討錯題。':'多溫習字卡，再測一次。';
+  S.hist.unshift({d:Date.now(),label:Q.label,n,c:Q.score});S.hist=S.hist.slice(0,40);save();
+  $('#retestWrong').disabled=!Q.wrong.length;$('#reviewWrongCards').disabled=!Q.wrong.length;
+  $('#wrongTitle').textContent=Q.wrong.length?'答錯題目檢討':'沒有答錯的題目';
+  $('#wrongList').innerHTML=Q.wrong.map(x=>{const w=x.w,t=tById[w.tid]||{title:''};return`<div class="wrong-item"><div class="q">${hl(w.orig,w.word)}</div><div class="ans"><span class="you">${esc(x.you)}</span><span class="ok">${esc(ansOf(w))}</span></div><div class="meta">${esc(t.title)}${w.src?' ‧ '+esc(w.src):''} ‧ ${esc(w.pos)}</div><div style="margin-top:6px"><button class="tbtn" data-card="${w.id}">看字卡</button></div></div>`}).join('');
+  const bw=$('#breakdownWrap');if(Q.mode==='final'){bw.style.display='';const g={};Q.items.forEach(it=>{const k=it.w.tid;g[k]=g[k]||{n:0,c:0};g[k].n++;if(it.ok)g[k].c++});
+    $('#breakdownBody').innerHTML=TEXTS.filter(t=>g[t.id]).map(t=>{const r=g[t.id],p=Math.round(r.c/r.n*100);return`<tr><td>${esc(t.title)}</td><td>${r.n}</td><td>${r.c}</td><td class="pct"><b>${p}%</b></td><td><button class="tbtn" data-learn="${t.id}">溫習此篇</button></td></tr>`}).join('')}else bw.style.display='none';
+  if(pc>=80)splash(true)}
+$('#retestWrong').onclick=()=>startQuiz(Q.wrong.map(x=>x.w),Q.mode,Q.label+'（重測錯題）',Q.tid,Q.timer);
+$('#reviewWrongCards').onclick=()=>openLearn(null,'all',Q.wrong.map(x=>x.w));
+$('#againQuiz').onclick=()=>{if(Q.mode==='final')show('final');else if(Q.mode==='wrong')show('wrong');else openQuizSetup(Q.tid)};
+
+/* ===== 八、試前總測 ===== */
+function finalWords(){const sc=rv('fscope'),n=rv('fqn'),order=rv('forder');let out=[];
+  for(const t of TEXTS){let ws=t.words.filter(w=>w.quiz&&(sc==='all'||(sc==='unmastered'&&!S.mastered[w.id])||(sc==='wrong'&&S.wrong[w.id])));ws=shuffle(ws);if(n!=='all')ws=ws.slice(0,+n);out.push(...ws)}
+  return order==='mix'?shuffle(out):out}
+function renderFinal(){const m=Object.keys(S.mastered).filter(id=>byId[id]).length,wr=Object.keys(S.wrong).filter(id=>byId[id]).length;
+  $('#finalStats').innerHTML=`<div class="stat"><b>${TEXTS.length}</b><span>篇章</span></div><div class="stat"><b>${ALL.length}</b><span>字詞總數</span></div><div class="stat"><b>${m}</b><span>已掌握</span></div><div class="stat"><b class="red">${wr}</b><span>錯題</span></div>`;updFinalCount()}
+function updFinalCount(){$('#finalCount').textContent='本次共 '+finalWords().length+' 題'}
+$$('#view-final input').forEach(i=>i.onchange=updFinalCount);
+$('#startFinal').onclick=()=>startQuiz(finalWords(),'final','試前總測',null,+rv('ftimer'));
+
+/* ===== 九、錯題本 ===== */
+const wrongWords=()=>ALL.filter(w=>S.wrong[w.id]);
+function renderWrong(){const ws=wrongWords(),g=$('#wrongGroups');$('#quizWrongAll').disabled=$('#learnWrongBtn').disabled=!ws.length;
+  if(!ws.length){g.innerHTML='<div class="empty">錯題本是空的。<br>測驗答錯的字詞會自動記錄在這裏。</div>';return}
+  g.innerHTML=TEXTS.map(t=>{const list=ws.filter(w=>w.tid===t.id);if(!list.length)return'';return`<div class="grp"><h3>${esc(t.title)}<small style="color:var(--ink3)">${list.length} 字</small></h3><div class="grid">${list.map(w=>`<div class="mini${S.mastered[w.id]?' m':''}" data-card="${w.id}"><span class="cnt">${S.mastered[w.id]?'已掌握':'錯 '+S.wrong[w.id]+' 次'}</span><div class="s">${hl(w.orig,w.word)}</div><div class="w">${esc(w.word)}：${esc(w.mean)}</div></div>`).join('')}</div></div>`}).join('')}
+$('#quizWrongAll').onclick=()=>startQuiz(shuffle(wrongWords()),'wrong','錯題本測考');
+$('#learnWrongBtn').onclick=()=>openLearn(null,'all',wrongWords());
+$('#clearWrong').onclick=async()=>{if(await confirmBox('確定清空錯題本？')){S.wrong={};save();renderWrong();$('#wrongBadge').textContent='0';toast('已清空')}};
+
+/* ===== 十、學習進度 ===== */
+function renderStats(){const m=Object.keys(S.mastered).filter(id=>byId[id]).length,wr=Object.keys(S.wrong).filter(id=>byId[id]).length;
+  $('#statCards').innerHTML=`<div class="stat"><b>${ALL.length}</b><span>字詞總數</span></div><div class="stat"><b>${m}</b><span>已掌握</span></div><div class="stat"><b class="red">${wr}</b><span>錯題</span></div><div class="stat"><b>${S.hist.length}</b><span>測驗次數</span></div>`;
+  $('#textProgress').innerHTML=TEXTS.map(t=>{const mm=t.words.filter(w=>S.mastered[w.id]).length,pc=Math.round(mm/t.words.length*100);return`<div class="trow"><div class="t">${esc(t.title)}<small>${esc(t.author)}</small></div><div class="pbar"><i style="width:${pc}%"></i></div><div class="n">${mm} / ${t.words.length}（${pc}%）</div></div>`}).join('');
+  $('#histBody').innerHTML=S.hist.length?S.hist.map(h=>{const d=new Date(h.d),p=Math.round(h.c/h.n*100);return`<tr><td>${d.getMonth()+1}月${d.getDate()}日 ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}</td><td>${esc(h.label)}</td><td>${h.n}</td><td>${h.c}</td><td class="pct"><b>${p}%</b></td></tr>`}).join(''):'<tr><td colspan="5" style="color:var(--ink3)">尚無測驗紀錄</td></tr>'}
+$('#resetAll').onclick=async()=>{if(await confirmBox('確定重設所有進度？已掌握標記、錯題本及測驗紀錄都會清除。')){S.mastered={};S.wrong={};S.hist=[];save();renderStats();$('#wrongBadge').textContent='0';toast('已重設')}};
+
+/* ===== 十一、背景水墨（約 20fps，切換 App 時暫停） ===== */
+const bg=$('#bg'),bc=bg.getContext('2d'),fx=$('#fx'),fc=fx.getContext('2d');let blobs=[],last=0,paused=false,parts=[];
+function size(){const r=Math.min(devicePixelRatio||1,2);for(const c of[bg,fx]){c.width=innerWidth*r;c.height=innerHeight*r;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px'}}
+size();addEventListener('resize',size);
+blobs=Array.from({length:7},()=>({x:Math.random(),y:Math.random(),r:.15+Math.random()*.25,dx:(Math.random()-.5)*.0006,dy:(Math.random()-.5)*.0006,a:.04+Math.random()*.05}));
+function loop(ts){requestAnimationFrame(loop);if(paused||ts-last<50)return;last=ts;const W=bg.width,H=bg.height;bc.clearRect(0,0,W,H);
+  for(const b of blobs){b.x+=b.dx;b.y+=b.dy;if(b.x<-.3||b.x>1.3)b.dx*=-1;if(b.y<-.3||b.y>1.3)b.dy*=-1;const g=bc.createRadialGradient(b.x*W,b.y*H,0,b.x*W,b.y*H,b.r*Math.max(W,H));g.addColorStop(0,`rgba(60,50,40,${b.a})`);g.addColorStop(1,'rgba(60,50,40,0)');bc.fillStyle=g;bc.fillRect(0,0,W,H)}
+  fc.clearRect(0,0,fx.width,fx.height);if(parts.length){parts=parts.filter(p=>p.life>0);for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=.25;p.life-=.04;fc.globalAlpha=Math.max(p.life,0);fc.fillStyle=p.c;fc.beginPath();fc.arc(p.x,p.y,p.r,0,7);fc.fill()}fc.globalAlpha=1}}
+requestAnimationFrame(loop);
+function splash(big){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;const r=Math.min(devicePixelRatio||1,2),n=big?60:22,cx=fx.width/2,cy=fx.height*(big?.35:.25);
+  for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,s=(2+Math.random()*6)*r;parts.push({x:cx,y:cy,vx:Math.cos(a)*s,vy:Math.sin(a)*s-3*r,r:(2+Math.random()*4)*r,life:1,c:Math.random()<.3?'#a8322a':'#1f1d1b'})}}
+
+/* ===== 十二、iOS「加入主畫面」提示與圖示 ===== */
+const iOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode:standalone)').matches;
+if(iOS&&!standalone&&!S.a2hs)setTimeout(()=>$('#a2hs').classList.add('show'),3000);
+$('#a2hsClose').onclick=()=>{$('#a2hs').classList.remove('show');S.a2hs=true;save()};
+try{const c=document.createElement('canvas');c.width=c.height=180;const x=c.getContext('2d');x.fillStyle='#efe7d6';x.fillRect(0,0,180,180);x.fillStyle='#a8322a';x.fillRect(30,30,120,120);x.fillStyle='#fff';x.font='bold 64px "PingFang TC","Heiti TC",sans-serif';x.textAlign='center';x.textBaseline='middle';x.fillText('文',90,94);
+  const l=document.createElement('link');l.rel='apple-touch-icon';l.href=c.toDataURL('image/png');document.head.appendChild(l)}catch(e){}
+/* 禁止雙擊縮放 */
+let lastTap=0;document.addEventListener('touchend',e=>{const now=Date.now();if(now-lastTap<300&&!e.target.closest('.back .scroll'))e.preventDefault();lastTap=now},{passive:false});
+
+renderMenu();
+})();
+</script>
+</body>
+</html>
